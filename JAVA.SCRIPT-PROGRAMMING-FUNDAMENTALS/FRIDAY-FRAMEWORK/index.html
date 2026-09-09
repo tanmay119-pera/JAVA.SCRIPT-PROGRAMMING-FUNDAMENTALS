@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>friday-framework | Anti-Framework Admin Dashboard</title>
+  
+  <!-- Modern Clean Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Zero-dependency Modern CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP PROGRESS / LOADING BAR
+       A slim, glowing loading bar fixed to the very top of the viewport.
+       Vanilla JS animates its width and opacity to simulate realistic page/data loads.
+       ========================================================================== -->
+  <div id="top-loader" class="top-loader" aria-hidden="true"></div>
+
+  <!-- Toast Notification Container (Fixed floating notices in bottom-right) -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Overlay backdrop for mobile navigation (Placed outside .app-layout to prevent CSS Grid bugs!) -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+  <!-- Main Application Wrapper: Pure CSS Grid layout (Sidebar + Main Viewport) -->
+  <div class="app-layout" id="app-layout">
+
+    <!-- ========================================================================
+         SIDEBAR NAVIGATION
+         Fixed / collapsible navigation with branding, routes, and admin profile.
+         Using modern CSS variables, this expands and collapses without layout jump.
+         ======================================================================== -->
+    <aside class="sidebar" id="sidebar" aria-label="Main Navigation">
+      
+      <!-- Brand Logo Header -->
+      <div class="sidebar-header">
+        <a href="#" class="brand-logo" title="friday-framework">
+          <div class="brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">friday<span class="brand-accent">.</span></span>
+            <span class="brand-badge">ANTI-FRAMEWORK</span>
+          </div>
+        </a>
+
+        <!-- Collapse toggle button for desktop -->
+        <button id="sidebar-toggle-btn" class="sidebar-toggle-btn" title="Toggle Sidebar (Ctrl+B)" aria-label="Toggle Sidebar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation Links Container -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">MAIN MENU</div>
+        
+        <ul class="nav-list">
+          <li class="nav-item active">
+            <a href="#" class="nav-link" data-route="database">
+              <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+              <span class="nav-label">Database Nodes</span>
+              <span class="nav-indicator"></span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link" data-route="analytics">
+              <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+              <span class="nav-label">Analytics</span>
+              <span class="badge badge-emerald">Live</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link" data-route="deployments">
+              <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+              </svg>
+              <span class="nav-label">Deployments</span>
+              <span class="badge badge-blue">8</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link" data-route="logs">
+              <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+              </svg>
+              <span class="nav-label">System Logs</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-label">ADMINISTRATION</div>
+
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#" class="nav-link" data-route="users">
+              <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span class="nav-label">Engineers & Team</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link" data-route="settings">
+              <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+              <span class="nav-label">Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Footer: Admin Profile Card for 'tanmay' -->
+      <div class="sidebar-footer">
+        <div class="user-card" id="user-profile-card">
+          <div class="user-avatar-container">
+            <div class="user-avatar">T</div>
+            <span class="status-dot status-online" title="Status: Online"></span>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Tanmay</span>
+            <span class="user-role">Principal Cloud Architect (Global Root)</span>
+          </div>
+          <button class="user-action-btn" title="Quick Profile Menu" id="user-menu-btn" aria-label="User Options">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="1"></circle>
+              <circle cx="12" cy="5" r="1"></circle>
+              <circle cx="12" cy="19" r="1"></circle>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ========================================================================
+         MAIN CONTENT AREA (Top Nav Bar + Dashboard Grid + Scrollable Database)
+         ======================================================================== -->
+    <div class="main-wrapper">
+
+      <!-- TOP NAVIGATION BAR -->
+      <header class="top-nav" id="top-nav">
+        <div class="top-nav-left">
+          <!-- Mobile Menu Hamburger -->
+          <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open Navigation Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <!-- Breadcrumbs -->
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <span class="breadcrumb-item">friday-framework</span>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-item active" id="current-page-crumb">Database Cluster Matrix</span>
+          </nav>
+        </div>
+
+        <!-- Center Search Bar (Real-time live search for database nodes) -->
+        <div class="top-nav-center">
+          <div class="search-box">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="global-search-input" placeholder="Search nodes, engineers (e.g. Aarav, Priya), regions..." autocomplete="off">
+            <kbd class="shortcut-key">⌘K</kbd>
+          </div>
+        </div>
+
+        <!-- Top Right Actions -->
+        <div class="top-nav-right">
+          
+          <!-- Sync / Refresh Metrics Button (Working micro-interaction) -->
+          <button id="refresh-metrics-btn" class="btn btn-secondary btn-icon-text" title="Sync live database telemetry">
+            <svg class="spin-target" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            <span>Sync</span>
+          </button>
+
+          <!-- Quick Action: Add User Modal Button -->
+          <button id="open-user-modal-btn" class="btn btn-emerald btn-icon-text pulse-glow" title="Add new engineer or team member">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+            <span>+ Add User</span>
+          </button>
+
+          <!-- Quick Action: Provision Node Modal -->
+          <button id="open-deploy-modal-btn" class="btn btn-primary btn-icon-text" title="Deploy database shard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>New Node</span>
+          </button>
+
+          <!-- Notification Bell with Ping Dot -->
+          <div class="notification-wrapper">
+            <button id="notifications-btn" class="btn-icon" aria-label="Notifications" title="Notifications">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="notification-ping" id="notif-badge"></span>
+            </button>
+
+            <!-- Notifications Dropdown Popover -->
+            <div class="notifications-dropdown" id="notifications-dropdown">
+              <div class="notif-header">
+                <span class="notif-title">Cluster Notifications</span>
+                <button class="notif-clear-btn" id="mark-read-btn">Mark all read</button>
+              </div>
+              <ul class="notif-list">
+                <li class="notif-item unread">
+                  <div class="notif-icon notif-icon-emerald">✓</div>
+                  <div class="notif-content">
+                    <p class="notif-msg">Aarav Sharma synced Mumbai replica shard #04.</p>
+                    <span class="notif-time">2 mins ago</span>
+                  </div>
+                </li>
+                <li class="notif-item unread">
+                  <div class="notif-icon notif-icon-blue">🚀</div>
+                  <div class="notif-content">
+                    <p class="notif-msg">Priya Patel added Redis cache layer in Bengaluru.</p>
+                    <span class="notif-time">14 mins ago</span>
+                  </div>
+                </li>
+                <li class="notif-item">
+                  <div class="notif-icon notif-icon-amber">⚡</div>
+                  <div class="notif-content">
+                    <p class="notif-msg">Rohan Gupta ran auto-failover test on Delhi node.</p>
+                    <span class="notif-time">1 hour ago</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Quick User Avatar in Header -->
+          <div class="header-profile" id="header-profile-trigger">
+            <div class="user-avatar-sm">T</div>
+            <span class="header-username">Tanmay</span>
+          </div>
+
+        </div>
+      </header>
+
+      <!-- ======================================================================
+           MAIN DASHBOARD CONTENT
+           Built entirely with CSS Grid & Flexbox. No 200KB JS runtime needed.
+           ====================================================================== -->
+      <main class="dashboard-content" id="main-content">
+
+        <!-- Welcome Banner & Controls Header -->
+        <section class="welcome-section" id="overview-section">
+          <div class="welcome-copy">
+            <div class="welcome-badge">
+              <span class="pulse-indicator"></span>
+              <span>Enterprise Multi-Region Data Fabric Active • 99.999% High Availability</span>
+            </div>
+            <h1 class="welcome-title">Welcome back, <span class="highlight-text">Tanmay</span></h1>
+            <p class="welcome-subtitle">Global distributed database control plane: Real-time telemetry, automated partition rebalancing, and low-latency replication across Americas, EMEA, and Asia-Pacific.</p>
+          </div>
+
+          <!-- Modern Global Action Bar -->
+          <div class="quick-action-bar">
+            <button id="quick-add-user-btn" class="btn btn-emerald btn-icon-text ripple-effect" title="Provision new user or shard">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+              <span>+ Add User / Node</span>
+            </button>
+            <button id="run-latency-audit-btn" class="btn btn-secondary btn-icon-text ripple-effect" title="Run real-time multi-region latency benchmark">
+              <svg class="pulse-target" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <span>Run Latency Audit</span>
+            </button>
+            <div class="country-buttons-group">
+              <button class="btn btn-pill-region ripple-effect" data-spawn="us" title="Spawn US Engineer & Shard">
+                <span class="iso-tag">US</span>
+                <span class="btn-text">Americas</span>
+              </button>
+              <button class="btn btn-pill-region ripple-effect" data-spawn="de" title="Spawn Germany / EU Engineer & Shard">
+                <span class="iso-tag">DE</span>
+                <span class="btn-text">Germany</span>
+              </button>
+              <button class="btn btn-pill-region ripple-effect" data-spawn="uk" title="Spawn UK Engineer & Shard">
+                <span class="iso-tag">UK</span>
+                <span class="btn-text">London</span>
+              </button>
+              <button class="btn btn-pill-region ripple-effect" data-spawn="in" title="Spawn India Engineer & Shard">
+                <span class="iso-tag">IN</span>
+                <span class="btn-text">India</span>
+              </button>
+              <button class="btn btn-pill-region ripple-effect" data-spawn="jp" title="Spawn Japan Engineer & Shard">
+                <span class="iso-tag">JP</span>
+                <span class="btn-text">Tokyo</span>
+              </button>
+              <button class="btn btn-pill-region ripple-effect" data-spawn="sg" title="Spawn Singapore Engineer & Shard">
+                <span class="iso-tag">SG</span>
+                <span class="btn-text">Singapore</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Enterprise Region Selector Tabs -->
+          <div class="timeframe-tabs" role="tablist">
+            <button class="time-tab active" data-period="all">Global Mesh (All)</button>
+            <button class="time-tab" data-period="americas">Americas (US/CA)</button>
+            <button class="time-tab" data-period="emea">EMEA (UK/DE)</button>
+            <button class="time-tab" data-period="apac">APAC (IN/JP/SG)</button>
+            <button class="time-tab" data-period="primary">Primary Masters</button>
+            <button class="time-tab" data-period="fast">Sub-2ms Nodes</button>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             METRIC CARDS GRID
+             CSS: grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+             Automatically distributes 4 cards across available viewport width.
+             ==================================================================== -->
+        <section class="metrics-grid" id="metrics-section" aria-label="Database Telemetry">
+          
+          <!-- Card 1: Total Records -->
+          <div class="metric-card" data-card="revenue">
+            <div class="metric-card-top">
+              <span class="metric-title">Total Database Records</span>
+              <div class="metric-icon-wrap icon-emerald">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-card-body">
+              <div class="metric-number-wrap">
+                <span class="metric-value counter-value" data-target="14298420" data-format="integer">14,298,420</span>
+              </div>
+              <div class="metric-trend trend-positive">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                <span>+182,490</span>
+                <span class="trend-sub">today</span>
+              </div>
+            </div>
+            <div class="metric-sparkline">
+              <svg viewBox="0 0 100 24" preserveAspectRatio="none">
+                <path d="M0,18 Q15,12 30,16 T60,8 T90,4 L100,2" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 2: Active Nodes -->
+          <div class="metric-card" data-card="sessions">
+            <div class="metric-card-top">
+              <span class="metric-title">Connected Shards</span>
+              <div class="metric-icon-wrap icon-blue">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-card-body">
+              <div class="metric-number-wrap">
+                <span class="metric-value counter-value" data-target="24" data-format="integer">24</span>
+                <span class="metric-unit">Nodes</span>
+              </div>
+              <div class="metric-trend trend-positive">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                <span>100% Up</span>
+                <span class="trend-sub">0 outages</span>
+              </div>
+            </div>
+            <div class="metric-sparkline">
+              <svg viewBox="0 0 100 24" preserveAspectRatio="none">
+                <path d="M0,20 Q20,15 40,9 T70,14 T100,5" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 3: Query Latency -->
+          <div class="metric-card" data-card="latency">
+            <div class="metric-card-top">
+              <span class="metric-title">Avg Query Latency</span>
+              <div class="metric-icon-wrap icon-cyan">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-card-body">
+              <div class="metric-number-wrap">
+                <span class="metric-value counter-value" data-target="3.8" data-format="decimal">3.8</span>
+                <span class="metric-unit">ms</span>
+              </div>
+              <div class="metric-trend trend-positive">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                  <polyline points="17 18 23 18 23 12"></polyline>
+                </svg>
+                <span>-1.2ms</span>
+                <span class="trend-sub">sub-ms peak</span>
+              </div>
+            </div>
+            <div class="metric-sparkline">
+              <svg viewBox="0 0 100 24" preserveAspectRatio="none">
+                <path d="M0,10 Q25,8 50,14 T80,11 T100,6" fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 4: Throughput QPS -->
+          <div class="metric-card" data-card="conversion">
+            <div class="metric-card-top">
+              <span class="metric-title">Peak Read/Write QPS</span>
+              <div class="metric-icon-wrap icon-violet">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-card-body">
+              <div class="metric-number-wrap">
+                <span class="metric-value counter-value" data-target="92450" data-format="integer">92,450</span>
+                <span class="metric-unit">QPS</span>
+              </div>
+              <div class="metric-trend trend-positive">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                <span>+12.4%</span>
+                <span class="trend-sub">SSD NVMe pool</span>
+              </div>
+            </div>
+            <div class="metric-sparkline">
+              <svg viewBox="0 0 100 24" preserveAspectRatio="none">
+                <path d="M0,16 Q20,18 45,10 T80,12 T100,4" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ====================================================================
+             LIVE DATABASE SCROLLABLE DATA GRID (MODERN & MOTION-PACKED)
+             Featuring realistic Indian engineers, sticky glass headers, smooth
+             overflow scrolling, glowing states, and action triggers.
+             ==================================================================== -->
+        <section class="panel-card database-panel" id="database-section">
+          <div class="table-header-bar">
+            <div>
+              <div class="database-title-badge">
+                <span class="pulse-indicator"></span>
+                <h2 class="panel-title">Production Database Shards & Replication Grid</h2>
+              </div>
+              <span class="panel-subtitle">Scrollable high-concurrency node matrix • Global fleet across India, UK, and Japan</span>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="table-filter-group">
+              <div class="filter-pills" role="tablist">
+                <button class="filter-pill active" data-filter="all">All Shards (<span id="shards-count-pill">16</span>)</button>
+                <button class="filter-pill" data-filter="primary">Primary</button>
+                <button class="filter-pill" data-filter="replica">Replica</button>
+                <button class="filter-pill" data-filter="syncing">Syncing</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- High-performance scrollable database wrapper with custom styling -->
+          <div class="database-scroll-container">
+            <table class="data-table database-table" id="activity-table">
+              <thead>
+                <tr>
+                  <th>Database Shard / Identifier</th>
+                  <th>Engine / Type</th>
+                  <th>Assigned Engineer</th>
+                  <th>Region & Datacenter</th>
+                  <th>Status</th>
+                  <th>Storage Used</th>
+                  <th>Latency</th>
+                  <th class="text-right">Quick Action</th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+
+                <!-- Node 1: US-East Primary (Americas) -->
+                <tr data-status="primary" data-region="americas" data-country="us" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-blue">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">aurora_global_useast_01</div>
+                        <div class="resource-id">shard-id: #iad-pg-101</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-postgres">PostgreSQL 16</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-us">MV</span>
+                      <span class="engineer-name">Marcus Vance <span class="iso-tag">US</span></span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">us-east-1 (N. Virginia)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>Primary Active</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>1.8 TB / 2 TB</span><span>90%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-indigo" style="width: 90%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">1.1ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('aurora_global_useast_01')">Query</button>
+                  </td>
+                </tr>
+
+                <!-- Node 2: Frankfurt Telemetry (Europe / Germany) -->
+                <tr data-status="primary" data-region="emea" data-country="de" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-amber">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">clickhouse_frankfurt_telemetry</div>
+                        <div class="resource-id">shard-id: #fra-ch-440</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-clickhouse">ClickHouse OLAP</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-de">LW</span>
+                      <span class="engineer-name">Lukas Weber <span class="iso-tag">DE</span></span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">eu-central-1 (Frankfurt)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>Zero Lag (OLAP)</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>3.6 TB / 5 TB</span><span>72%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-amber" style="width: 72%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">1.8ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('clickhouse_frankfurt_telemetry')">Metrics</button>
+                  </td>
+                </tr>
+
+                <!-- Node 3: Singapore Memory Hub (APAC / Singapore) -->
+                <tr data-status="primary" data-region="apac" data-country="sg" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-red">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">redis_cache_singapore_hub</div>
+                        <div class="resource-id">shard-id: #sin-rd-901</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-redis">Redis 7.2 Memory</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-sg">WZ</span>
+                      <span class="engineer-name">Wei Zhang <span class="iso-tag">SG</span></span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">ap-southeast-1 (Singapore)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>Sub-ms Fast</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>196 GB / 256 GB</span><span>76%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-emerald" style="width: 76%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">0.6ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('redis_cache_singapore_hub')">Flush/Sync</button>
+                  </td>
+                </tr>
+
+                <!-- Node 4: London Primary (Europe / UK) -->
+                <tr data-status="primary" data-region="emea" data-country="uk" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-blue">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">pg_eu_london_01</div>
+                        <div class="resource-id">shard-id: #lon-pg-302</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-postgres">PostgreSQL 16</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-uk">OS</span>
+                      <span class="engineer-name">Oliver Smith <span class="iso-tag">UK</span></span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">eu-west-2 (London Docklands)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>Primary Active</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>1.6 TB / 2 TB</span><span>80%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-indigo" style="width: 80%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">1.4ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('pg_eu_london_01')">Query</button>
+                  </td>
+                </tr>
+
+                <!-- Node 5: Tokyo Edge (APAC / Japan) -->
+                <tr data-status="primary" data-region="apac" data-country="japan" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-red">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">redis_tokyo_edge_01</div>
+                        <div class="resource-id">shard-id: #tyo-rd-550</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-redis">Redis 7.2 Memory</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-jp">KS</span>
+                      <span class="engineer-name">Kenji Sato <span class="iso-tag">JP</span></span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">ap-northeast-1 (Tokyo Equinix)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>In-Memory Sub-ms</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>210 GB / 256 GB</span><span>82%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-emerald" style="width: 82%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">0.4ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('redis_tokyo_edge_01')">Flush/Sync</button>
+                  </td>
+                </tr>
+
+                <!-- Node 6: Mumbai Cluster (APAC / India) -->
+                <tr data-status="primary" data-region="apac" data-country="india" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-emerald">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">pg_cluster_mumbai_01</div>
+                        <div class="resource-id">shard-id: #bom-pg-881</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-postgres">PostgreSQL 16</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-in">AS</span>
+                      <span class="engineer-name">Aarav Sharma <span class="iso-tag">IN</span></span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">ap-south-1 (Mumbai Tier-4)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>Primary Active</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>1.2 TB / 2 TB</span><span>60%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-emerald" style="width: 60%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">2.1ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('pg_cluster_mumbai_01')">Query</button>
+                  </td>
+                </tr>
+                <!-- Node 7: Mumbai Primary Legacy -->
+                <tr data-status="primary" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-emerald">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">pg_cluster_mumbai_01</div>
+                        <div class="resource-id">shard-id: #bom-pg-881</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-postgres">PostgreSQL 16</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-as">AS</span>
+                      <span class="engineer-name">Aarav Sharma</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">ap-south-1 (Mumbai)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>Primary Active</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>1.2 TB / 2 TB</span><span>60%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-emerald" style="width: 60%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">2.1ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('pg_cluster_mumbai_01')">Query</button>
+                  </td>
+                </tr>
+
+                <!-- Node 2: Bengaluru Redis -->
+                <tr data-status="primary" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-red">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">redis_cache_blr_cluster</div>
+                        <div class="resource-id">shard-id: #blr-rd-410</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-redis">Redis 7.2 Memory</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-pp">PP</span>
+                      <span class="engineer-name">Priya Patel</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">blr-dc-02 (Bengaluru)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>In-Memory High Speed</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>184 GB / 256 GB</span><span>72%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-indigo" style="width: 72%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">0.7ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('redis_cache_blr_cluster')">Flush/Sync</button>
+                  </td>
+                </tr>
+
+                <!-- Node 3: Delhi Edge Shard -->
+                <tr data-status="replica" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-blue">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">aurora_read_delhi_01</div>
+                        <div class="resource-id">shard-id: #del-au-109</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-mysql">MySQL 8.4</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-rg">RG</span>
+                      <span class="engineer-name">Rohan Gupta</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">del-edge-01 (Delhi NCR)</span></td>
+                  <td><span class="status-pill status-replica"><span class="dot"></span>Replica (Synced)</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>890 GB / 2 TB</span><span>44%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-cyan" style="width: 44%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">3.4ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn" onclick="queryNode('aurora_read_delhi_01')">Metrics</button>
+                  </td>
+                </tr>
+
+                <!-- Node 4: Hyderabad Vector Search -->
+                <tr data-status="primary" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-violet">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">qdrant_vector_hyd</div>
+                        <div class="resource-id">shard-id: #hyd-qd-902</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-vector">Qdrant Vector DB</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-ai">AI</span>
+                      <span class="engineer-name">Ananya Iyer</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">ap-south-2 (Hyderabad)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>Index Ready</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>450 GB / 1 TB</span><span>45%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-violet" style="width: 45%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">4.6ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('qdrant_vector_hyd')">Search Test</button>
+                  </td>
+                </tr>
+
+                <!-- Node 5: Pune Replica Syncing -->
+                <tr data-status="syncing" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-amber">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">clickhouse_analytics_pune</div>
+                        <div class="resource-id">shard-id: #pnq-ch-331</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-clickhouse">ClickHouse OLAP</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-vm">VM</span>
+                      <span class="engineer-name">Vikram Malhotra</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">pnq-zone-a (Pune)</span></td>
+                  <td><span class="status-pill status-pending"><span class="dot animate-pulse"></span>WAL Syncing</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>3.4 TB / 5 TB</span><span>68%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-amber" style="width: 68%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-warn">14.8ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-retry" onclick="syncShard('clickhouse_analytics_pune')">Force Sync</button>
+                  </td>
+                </tr>
+
+                <!-- Node 6: Chennai TimescaleDB -->
+                <tr data-status="replica" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-emerald">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">timescale_telemetry_maa</div>
+                        <div class="resource-id">shard-id: #maa-ts-552</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-postgres">TimescaleDB</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-nv">NV</span>
+                      <span class="engineer-name">Neha Verma</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">maa-dc-01 (Chennai)</span></td>
+                  <td><span class="status-pill status-replica"><span class="dot"></span>Replica (Synced)</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>1.8 TB / 4 TB</span><span>45%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-emerald" style="width: 45%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">3.1ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn" onclick="queryNode('timescale_telemetry_maa')">Metrics</button>
+                  </td>
+                </tr>
+
+                <!-- Node 7: Kolkata Kafka Broker Storage -->
+                <tr data-status="primary" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-cyan">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">kafka_event_stream_ccu</div>
+                        <div class="resource-id">shard-id: #ccu-kf-771</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-kafka">Apache Kafka 3.6</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-av">AV</span>
+                      <span class="engineer-name">Aditya Verma</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">ccu-edge-02 (Kolkata)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>0 Lag Messages</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>640 GB / 1 TB</span><span>64%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-cyan" style="width: 64%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">1.4ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('kafka_event_stream_ccu')">Partitions</button>
+                  </td>
+                </tr>
+
+                <!-- Node 8: Ahmedabad Read Node -->
+                <tr data-status="replica" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-blue">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">pg_ro_ahmedabad_02</div>
+                        <div class="resource-id">shard-id: #amd-pg-129</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-postgres">PostgreSQL 16</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-kn">KN</span>
+                      <span class="engineer-name">Kavya Nair</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">amd-west-01 (Ahmedabad)</span></td>
+                  <td><span class="status-pill status-replica"><span class="dot"></span>Replica (Synced)</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>1.1 TB / 2 TB</span><span>55%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-indigo" style="width: 55%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">2.9ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn" onclick="queryNode('pg_ro_ahmedabad_02')">Metrics</button>
+                  </td>
+                </tr>
+
+                <!-- Node 9: Jaipur Cold Archive Shard -->
+                <tr data-status="replica" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-violet">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">cold_archive_jaipur_01</div>
+                        <div class="resource-id">shard-id: #jpr-s3-990</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-clickhouse">Parquet / S3 Storage</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-ds">DS</span>
+                      <span class="engineer-name">Devendra Singh</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">jpr-vault-01 (Jaipur)</span></td>
+                  <td><span class="status-pill status-replica"><span class="dot"></span>Warm Archive</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>8.2 TB / 10 TB</span><span>82%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-violet" style="width: 82%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-warn">22.4ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn" onclick="queryNode('cold_archive_jaipur_01')">Inspect</button>
+                  </td>
+                </tr>
+
+                <!-- Node 10: Mumbai Semantic Search -->
+                <tr data-status="primary" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-emerald">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">elastic_search_bom_02</div>
+                        <div class="resource-id">shard-id: #bom-es-401</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-vector">Elasticsearch 8.11</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-ij">IJ</span>
+                      <span class="engineer-name">Ishaan Joshi</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">ap-south-1 (Mumbai)</span></td>
+                  <td><span class="status-pill status-success"><span class="dot animate-pulse"></span>Cluster Green</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>1.5 TB / 3 TB</span><span>50%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-emerald" style="width: 50%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">4.0ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-action-glow" onclick="queryNode('elastic_search_bom_02')">Indices</button>
+                  </td>
+                </tr>
+
+                <!-- Node 11: Bengaluru Disaster Recovery Target -->
+                <tr data-status="replica" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-blue">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">dr_standby_blr_vault</div>
+                        <div class="resource-id">shard-id: #blr-dr-119</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-postgres">PostgreSQL 16 Standby</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-pr">PR</span>
+                      <span class="engineer-name">Pooja Reddy</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">blr-dc-03 (Bengaluru)</span></td>
+                  <td><span class="status-pill status-replica"><span class="dot"></span>Hot Standby</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>1.2 TB / 2 TB</span><span>60%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-cyan" style="width: 60%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-fast">1.8ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn" onclick="queryNode('dr_standby_blr_vault')">Verify Checksum</button>
+                  </td>
+                </tr>
+
+                <!-- Node 12: Noida Syncing Target -->
+                <tr data-status="syncing" class="db-row">
+                  <td>
+                    <div class="resource-cell">
+                      <div class="resource-icon icon-amber">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      </div>
+                      <div>
+                        <div class="resource-name">scylla_distributed_noida</div>
+                        <div class="resource-id">shard-id: #noi-sc-801</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="engine-badge engine-redis">ScyllaDB NoSQL</span></td>
+                  <td>
+                    <div class="engineer-tag">
+                      <span class="engineer-avatar avatar-rk">RK</span>
+                      <span class="engineer-name">Rajesh Kumar</span>
+                    </div>
+                  </td>
+                  <td><span class="region-pill">del-noida-dc (Noida)</span></td>
+                  <td><span class="status-pill status-pending"><span class="dot animate-pulse"></span>Rebalancing</span></td>
+                  <td>
+                    <div class="table-storage-bar">
+                      <div class="storage-meta"><span>920 GB / 2 TB</span><span>46%</span></div>
+                      <div class="progress-track"><div class="progress-fill fill-amber" style="width: 46%;"></div></div>
+                    </div>
+                  </td>
+                  <td><span class="mono-text latency-warn">9.2ms</span></td>
+                  <td class="text-right">
+                    <button class="table-action-btn btn-retry" onclick="syncShard('scylla_distributed_noida')">Rebalance</button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty state indicator if search filters match nothing -->
+          <div id="table-empty-state" class="hidden table-empty-state">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <p>No matching database shards found. Try searching for "Aarav", "Oliver", "Kenji", "Mumbai", or "Tokyo".</p>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             GLOBAL ENGINEERS & FLEET TEAM ROSTER (INTERACTIVE MULTI-REGION)
+             Interactive cards for Indian, UK, and Japan engineers with live telemetry,
+             direct node assignment, and dynamic user management.
+             ==================================================================== -->
+        <section class="panel-card team-panel reveal-on-scroll" id="team-section">
+          <div class="table-header-bar">
+            <div>
+              <div class="database-title-badge">
+                <span class="pulse-indicator"></span>
+                <h2 class="panel-title">Global Engineering Fleet & Regional Leads</h2>
+              </div>
+              <span class="panel-subtitle">High-availability distributed infrastructure managed across Americas, Europe, and Asia-Pacific</span>
+            </div>
+
+            <!-- Country Filter Pills for Team -->
+            <div class="team-filter-group">
+              <div class="filter-pills" role="tablist">
+                <button class="filter-pill team-pill active" data-team-filter="all">Global Fleet (<span id="team-count-badge">16</span>)</button>
+                <button class="filter-pill team-pill" data-team-filter="americas">Americas (US/CA)</button>
+                <button class="filter-pill team-pill" data-team-filter="emea">EMEA (Europe)</button>
+                <button class="filter-pill team-pill" data-team-filter="apac">APAC (Asia-Pac)</button>
+              </div>
+              <button class="btn btn-emerald btn-sm btn-icon-text ripple-effect" id="team-add-user-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span>+ Add User</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Interactive Grid of Engineer Cards (Rendered dynamically) -->
+          <div class="team-grid" id="team-grid"></div>
+        </section>
+
+      </main>
+
+      <!-- Dashboard Footer -->
+      <footer class="app-footer">
+        <div class="footer-left">
+          <span>&copy; 2026 <strong>friday-framework</strong>. Developed for <strong>Tanmay</strong> & Global Infrastructure Fleet.</span>
+        </div>
+        <div class="footer-right">
+          <span class="footer-pill"><span class="dot-live"></span> Multi-Cloud Network: 100% Operational (<span id="active-shards-footer">28</span> Shards Synchronized)</span>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING QUICK-SCROLL DOCK (BUTTERY SMOOTH NAVIGATION)
+       Glassmorphic floating controller with one-click smooth scroll to sections
+       ========================================================================== -->
+    <nav class="quick-scroll-dock" id="quick-scroll-dock" aria-label="Quick Section Navigation">
+    <div class="dock-container">
+      <button class="dock-btn active" data-scroll-to="overview-section" title="Scroll to Overview">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        <span class="dock-label">Top</span>
+      </button>
+      <button class="dock-btn" data-scroll-to="metrics-section" title="Scroll to Telemetry">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        <span class="dock-label">Metrics</span>
+      </button>
+      <button class="dock-btn" data-scroll-to="database-section" title="Scroll to Shards Matrix">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+        <span class="dock-label">Shards</span>
+      </button>
+      <button class="dock-btn" data-scroll-to="team-section" title="Scroll to Global Team">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span class="dock-label">Team</span>
+      </button>
+      <div class="dock-divider"></div>
+      <button class="dock-btn dock-btn-action ripple-effect" id="dock-add-user-btn" title="Quick Add User or Shard">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        <span class="dock-label">Add User</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       INTERACTIVE USER & SHARD MODAL: ADD USER / PROVISION NODE
+       Supports random presets: Indian, UK, Japan, with real-time live preview.
+       ========================================================================== -->
+  <dialog id="deploy-modal" class="modal-dialog">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 class="modal-title" id="modal-title-heading">Add Engineer & Provision Shard</h3>
+          <p class="modal-subtitle">Add multi-region team leads with dedicated high-availability database nodes</p>
+        </div>
+        <button id="close-modal-btn" class="modal-close-btn" aria-label="Close dialog">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+            <!-- Clean Multi-Region Presets -->
+      <div class="modal-randomizer-bar">
+        <span class="randomizer-label">⚡ 1-Click Multi-Region Preset:</span>
+        <div class="randomizer-buttons">
+          <button type="button" class="btn-random-preset" data-preset="us">US</button>
+          <button type="button" class="btn-random-preset" data-preset="de">DE</button>
+          <button type="button" class="btn-random-preset" data-preset="uk">UK</button>
+          <button type="button" class="btn-random-preset" data-preset="in">IN</button>
+          <button type="button" class="btn-random-preset" data-preset="jp">JP</button>
+          <button type="button" class="btn-random-preset" data-preset="sg">SG</button>
+        </div>
+      </div>
+
+      <!-- Real-time Live Preview Card -->
+      <div class="modal-live-preview" id="modal-live-preview">
+        <div class="preview-avatar" id="preview-avatar">AS</div>
+        <div class="preview-details">
+          <div class="preview-name-row">
+            <span class="preview-name" id="preview-name">Aarav Sharma</span>
+            <span class="preview-country-badge" id="preview-country-badge"><span class="iso-tag">IN</span> India</span>
+          </div>
+          <div class="preview-meta">
+            <span class="preview-role" id="preview-role">Lead Database Administrator</span>
+            <span class="preview-dot">•</span>
+            <span class="preview-shard" id="preview-shard">#bom-pg-881</span>
+            <span class="preview-dot">•</span>
+            <span class="preview-engine" id="preview-engine">PostgreSQL 16</span>
+          </div>
+        </div>
+      </div>
+
+      <form id="deploy-form" method="dialog" class="modal-body">
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="deploy-engineer-name" class="form-label">Engineer / User Full Name</label>
+            <input type="text" id="deploy-engineer-name" class="form-input" placeholder="e.g. Priya Patel or Oliver Smith" required>
+          </div>
+          <div class="form-group flex-1">
+            <label for="deploy-country" class="form-label">Country / Region</label>
+            <select id="deploy-country" class="form-select" required>
+              <option value="us">United States (Americas - us-east-1)</option>
+              <option value="de">Germany (EMEA - eu-central-1)</option>
+              <option value="uk">United Kingdom (EMEA - eu-west-2)</option>
+              <option value="in">India (APAC - ap-south-1)</option>
+              <option value="jp">Japan (APAC - ap-northeast-1)</option>
+              <option value="sg">Singapore (APAC - ap-southeast-1)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="deploy-role" class="form-label">Role / Specialization</label>
+            <select id="deploy-role" class="form-select" required>
+              <option value="Lead Database Administrator">Lead Database Administrator</option>
+              <option value="Platform Cache Architect">Platform Cache Architect</option>
+              <option value="Vector AI Infrastructure Engineer">Vector AI Infrastructure Engineer</option>
+              <option value="Site Reliability Engineer">Site Reliability Engineer</option>
+              <option value="Distributed Systems Lead">Distributed Systems Lead</option>
+            </select>
+          </div>
+          <div class="form-group flex-1">
+            <label for="deploy-engine" class="form-label">Database Engine</label>
+            <select id="deploy-engine" class="form-select" required>
+              <option value="PostgreSQL 16">PostgreSQL 16 (ACID Relational)</option>
+              <option value="Redis 7.2 Memory">Redis 7.2 (Distributed Cache)</option>
+              <option value="Qdrant Vector DB">Qdrant (Vector AI Search)</option>
+              <option value="ClickHouse OLAP">ClickHouse (Real-Time Analytics)</option>
+              <option value="ScyllaDB NoSQL">ScyllaDB (Low Latency NoSQL)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="deploy-service" class="form-label">Database Shard Identifier</label>
+          <input type="text" id="deploy-service" class="form-input" placeholder="e.g. pg_orders_mumbai_03" required>
+        </div>
+
+        <div class="form-group">
+          <label for="deploy-env" class="form-label">Target Datacenter & Zone</label>
+          <select id="deploy-env" class="form-select" required>
+            <option value="us-east-1 (N. Virginia DC2)">us-east-1 (N. Virginia Equinix, US)</option>
+            <option value="us-west-2 (Oregon Silicon)">us-west-2 (Oregon Silicon Cloud, US)</option>
+            <option value="eu-central-1 (Frankfurt FR5)">eu-central-1 (Frankfurt Equinix, Germany)</option>
+            <option value="eu-west-2 (London Docklands)">eu-west-2 (London Docklands, UK)</option>
+            <option value="ap-south-1 (Mumbai Tier-4)">ap-south-1 (Mumbai Tier-4, India)</option>
+            <option value="blr-dc-02 (Bengaluru Tech Park)">blr-dc-02 (Bengaluru Tech Park, India)</option>
+            <option value="ap-northeast-1 (Tokyo Equinix)">ap-northeast-1 (Tokyo Equinix TY3, Japan)</option>
+            <option value="ap-southeast-1 (Singapore Jurong)">ap-southeast-1 (Singapore Jurong DC)</option>
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancel-deploy-btn">Cancel</button>
+          <button type="submit" class="btn btn-emerald ripple-effect" id="confirm-deploy-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Add User & Provision Node</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Load JavaScript Controller -->
+  <script src="app.js"></script>
+</body>
+</html>

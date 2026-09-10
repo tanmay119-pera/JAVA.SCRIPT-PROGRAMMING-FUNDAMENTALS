@@ -97,6 +97,7 @@ console.log(fullName); // This will output: tony stark
 
 var city = "new york"; // Here, 'city' is declared using var and can be reassigned.
 console.log(city); // This will output: new york
+//! well nowadays , it is recommended to use let and const instead of var for variable declarations in modern JavaScript due to their block-scoping behavior and better readability.  
 
 const pi = 3.14; // Here, 'pi' is declared using const and cannot be reassigned.
 console.log(pi); // This will output: 3.14

@@ -101,3 +101,16 @@ console.log(city); // This will output: new york
 
 const pi = 3.14; // Here, 'pi' is declared using const and cannot be reassigned.
 console.log(pi); // This will output: 3.14
+
+
+let a; // Here, 'a' is declared using let and can be reassigned.
+a = 10; // Now, 'a' is assigned a value of 10.
+console.log(a); // This will output: 10
+
+a = 20; // Now, 'a' is reassigned a value of 20.
+console.log(a); // This will output: 20
+
+const b = 5; // Here, 'b' is declared using const and cannot be reassigned.
+console.log(b); // This will output: 5
+
+// b = 10; // This will throw an error because 'b' is a constant and cannot be reassigned.

@@ -114,3 +114,15 @@ const b = 5; // Here, 'b' is declared using const and cannot be reassigned.
 console.log(b); // This will output: 5
 
 // b = 10; // This will throw an error because 'b' is a constant and cannot be reassigned.
+
+
+//& block in JavaScript (We will cover this in detail in the chapter -  "Functions in JavaScript")
+/* A block in JavaScript is a section of code enclosed within curly braces {}. It is used to group statements together and define the scope of variables declared within it. 
+Blocks are commonly used in control structures like if statements, loops, and functions. */
+
+{
+    let x = 10; // Here, 'x' is declared within the block and is only accessible within this block.
+    console.log(x); // This will output: 10
+}
+
+

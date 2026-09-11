@@ -194,7 +194,9 @@ let bigNumber = 9007199254740991n; // Here, 'bigNumber' is a variable of type Bi
 console.log(bigNumber); // This will output: 9007199254740991n
 
 //for example 
-
+/*
+In this example, we create a student object with properties like name, age, isGraduated, and city.
+*/
 const student = {
     name: "tony stark",
     age: 19,

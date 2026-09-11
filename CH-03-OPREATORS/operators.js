@@ -20,7 +20,8 @@ You can write multiple lines of comments here.
 /* OPERATORS ARE SPECIAL SYMBOLS OR CHARACTERS THAT PERFORM OPERATIONS ON VALUES OR VARIABLES.
 THEY CAN BE USED TO PERFORM ARITHMETIC, ASSIGNMENT, COMPARISON, LOGICAL, AND OTHER OPERATIONS. */
 
-//^ 1. Arithmetic Operators
+//~ 1. Arithmetic Operators
+
 // Arithmetic operators are used to perform mathematical operations on numbers.
 let a = 10;
 let b = 5;
@@ -43,7 +44,8 @@ console.log("Post-Increment: " + (a++)); //  post-Increment: 11  increment opera
 console.log("Post-Decrement: " + (b--)); //  post-Decrement: 4  decrement operator decreases the value of b by 1 after using it in the expression
 
 
-//^ 2. Assignment Operators
+//~ 2. Assignment Operators
+
 // Assignment operators are used to assign values to variables.
 let c = 20;
 c += 5; // Equivalent to c = c + 5
@@ -57,5 +59,114 @@ console.log("c after /= 3: " + c); // c after /= 3: 10
 c %= 4; // Equivalent to c = c % 4
 console.log("c after %= 4: " + c); // c after %= 4: 2
 
-//^ 3. Comparison Operators
-// Comparison operators are used to compare two values and return a boolean result (true or false). 
+//~ 3. Comparison Operators
+
+// Comparison operators are used to compare two values and return a boolean result (true or false).
+
+// Equal to is used to compare two values and return true if they are equal, and false if they are not equal.
+console.log("Equal: " + (a == b)); // Equal: false
+
+// Not Equal to is used to compare two values and return true if they are not equal, and false if they are equal.
+console.log("Not Equal: " + (a != b)); // Not Equal: true
+
+// Strict Equal to is used to compare both value and type
+console.log("Strict Equal: " + (a === b)); // Strict Equal: false
+
+// Strict Not Equal to is used to compare both value and type
+console.log("Strict Not Equal: " + (a !== b)); // Strict Not Equal: true
+
+// Greater Than is used to compare two values and return true if the left value is greater than the right value, and false if it is not.
+console.log("Greater Than: " + (a > b)); // Greater Than: true
+
+// Less Than is used to compare two values and return true if the left value is less than the right value, and false if it is not.
+console.log("Less Than: " + (a < b)); // Less Than: false
+
+// Greater Than or Equal is used to compare two values and return true if the left value is greater than or equal to the right value, and false if it is not.
+console.log("Greater Than or Equal: " + (a >= b)); // Greater Than or Equal: true
+
+// Less Than or Equal is used to compare two values and return true if the left value is less than or equal to the right value, and false if it is not.
+console.log("Less Than or Equal: " + (a <= b)); // Less Than or Equal: false
+
+//~ 4. Logical Operators
+
+// Logical operators are used to combine multiple boolean expressions and return a boolean result (true or false).
+
+let x = true;
+let y = false;
+
+// AND operator returns true if both operands are true, otherwise it returns false.
+console.log("AND: " + (x && y)); // AND: false
+
+// OR operator returns true if at least one of the operands is true, otherwise it returns false.
+console.log("OR: " + (x || y)); // OR: true
+
+// NOT operator returns the opposite boolean value of the operand.
+console.log("NOT x: " + (!x)); // NOT x: false
+console.log("NOT y: " + (!y)); // NOT y: true
+
+//~ 5. Ternary Operator
+
+/* The ternary operator is a shorthand way of writing an if-else statement. It takes three operands: a condition, a value to return if the condition is 
+true, and a value to return if the condition is false.*/
+let age = 18;
+let canVote = (age >= 18) ? "Yes" : "No";
+console.log("Can vote: " + canVote); // Can vote: Yes
+
+let number = 10;
+let result = (number % 2 === 0) ? "Even" : "Odd";
+console.log("The number is: " + result); // The number is: Even
+
+//~ 6. Type Operators
+// Type operators are used to check the type of a variable or value.
+
+// typeof operator returns a string indicating the type of the operand.
+console.log("Type of a: " + typeof a); // Type of a: number
+console.log("Type of x: " + typeof x); // Type of x: boolean
+console.log("Type of canVote: " + typeof canVote); // Type of canVote: string
+
+// instanceof operator checks if an object is an instance of a specific class or constructor function.
+let date = new Date();
+console.log("Is date an instance of Date? " + (date instanceof Date)); // Is date an instance of Date? true 
+
+let arr = [1, 2, 3];
+console.log("Is arr an instance of Array? " + (arr instanceof Array)); // Is arr an instance of Array? true 
+
+//~ 7. Bitwise Operators
+
+// Bitwise operators are used to perform operations on the binary representations of numbers.
+
+let num1 = 5; // Binary: 0101
+let num2 = 3; // Binary: 0011
+
+// AND operator
+console.log("Bitwise AND: " + (num1 & num2)); // Bitwise AND: 1 (Binary: 0001)
+
+// OR operator
+console.log("Bitwise OR: " + (num1 | num2)); // Bitwise OR: 7 (Binary: 0111)
+
+// XOR operator
+console.log("Bitwise XOR: " + (num1 ^ num2)); // Bitwise XOR: 6 (Binary: 0110)
+
+// NOT operator
+console.log("Bitwise NOT num1: " + (~num1)); // Bitwise NOT num1: -6 (Binary: ...11111010)
+
+// Left shift operator
+console.log("Left Shift num1 by 1: " + (num1 << 1)); // Left Shift num1 by 1: 10 (Binary: 1010)
+
+// Right shift operator
+console.log("Right Shift num1 by 1: " + (num1 >> 1)); // Right Shift num1 by 1: 2 (Binary: 0010)
+
+// Unsigned right shift operator
+console.log("Unsigned Right Shift num1 by 1: " + (num1 >>> 1)); // Unsigned Right Shift num1 by 1: 2 (Binary: 0010) 
+
+
+//& CONDITIONAL STATEMENTS IN JAVASCRIPT
+
+/* CONDITIONAL STATEMENTS ARE USED TO PERFORM DIFFERENT ACTIONS BASED ON DIFFERENT CONDITIONS. THEY ALLOW YOU TO CONTROL THE FLOW OF YOUR PROGRAM BY 
+EXECUTING CERTAIN BLOCKS OF CODE ONLY WHEN SPECIFIC CONDITIONS ARE MET. AND THERE ARE SEVERAL TYPES OF CONDITIONAL STATEMENTS IN JAVASCRIPT.
+
+1. If Statement : IT EXECUTES A BLOCK OF CODE IF A SPECIFIED CONDITION IS TRUE.AND IT CAN BE USED ALONE OR WITH ELSE OR ELSE IF STATEMENTS.
+2. If...Else Statement : IT EXECUTES ONE BLOCK OF CODE IF A CONDITION IS TRUE, AND ANOTHER BLOCK OF CODE IF THE CONDITION IS FALSE.
+3. If...Else If...Else Statement : IT EXECUTES DIFFERENT BLOCKS OF CODE BASED ON MULTIPLE CONDITIONS.
+4. Switch Statement : IT EVALUATES AN EXPRESSION AND EXECUTES THE BLOCK OF CODE CORRESPONDING TO THE MATCHING CASE.*/
+

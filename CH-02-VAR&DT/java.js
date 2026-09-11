@@ -149,3 +149,67 @@ Blocks are commonly used in control structures like if statements, loops, and fu
 /* JavaScript is a dynamically typed language, meaning that variables can hold values of different data types and can change their type during execution. 
 This flexibility allows for dynamic and adaptive coding practices. */
 
+//!primitive data types in JavaScript are Number, String, Boolean, Null, Undefined, Symbol, and BigInt. These data types are immutable and are compared by value.
+//!non-primitive data types in JavaScript are Object, Array, and Function. These data types are mutable and are compared by reference.
+
+// 1. Number Data Type
+let num1 = 42; // Here, 'num1' is a variable of type Number.
+let num2 = 3.14; // Here, 'num2' is a variable of type Number.
+console.log(num1); // This will output: 42
+console.log(num2); // This will output: 3.14
+
+// 2. String Data Type
+let str1 = "Hello, World!"; // Here, 'str1' is a variable of type String.
+let str2 = 'JavaScript is awesome!'; // Here, 'str2' is a variable of type String.
+let str3 = "tony stark"; // Here, 'str3' is a variable of type String using template literals.
+console.log(str1); // This will output: Hello, World!
+console.log(str2); // This will output: JavaScript is awesome!
+
+// 3. Boolean Data Type
+let isTrue = true; // Here, 'isTrue' is a variable of type Boolean.
+let isFalse = false; // Here, 'isFalse' is a variable of type Boolean.
+let isLoggedIn = true; // Here, 'isLoggedIn' is a variable of type Boolean.
+console.log(isTrue); // This will output: true
+console.log(isFalse); // This will output: false
+console.log(isLoggedIn); // This will output: true
+
+// 4. Null Data Type
+let emptyValue = null; // Here, 'emptyValue' is a variable of type Null.
+console.log(emptyValue); // This will output: null
+
+// 5. Undefined Data Type
+let undefinedValue; // Here, 'undefinedValue' is declared but not assigned a value, so it is of type Undefined.
+console.log(undefinedValue); // This will output: undefined
+
+// 6. Object Data Type
+let person = { name: "John", age: 30 }; // Here, 'person' is a variable of type Object.
+console.log(person); // This will output: { name: "John", age: 30 }
+
+// 7. Symbol Data Type (ES6)
+let uniqueId = Symbol("id"); // Here, 'uniqueId' is a variable of type Symbol.
+console.log(uniqueId); // This will output: Symbol(id)
+
+// 8. BigInt Data Type (ES11)
+let bigNumber = 9007199254740991n; // Here, 'bigNumber' is a variable of type BigInt.
+console.log(bigNumber); // This will output: 9007199254740991n
+
+//for example 
+
+const student = {
+    name: "tony stark",
+    age: 19,
+    isGraduated: false,
+    city: "new york",
+    hobbies: ["reading", "coding", "gaming"],
+    address: {
+        street: "123 Main St",
+        city: "New York",
+        zipCode: "10001"
+    }
+};
+console.log(student) // This will output the entire student object with its properties and values.
+
+//& conclusion
+/* In this chapter, we have explored the concept of variables and data types in JavaScript. We have learned how to declare variables using let, const, and var, 
+and we have discussed the different data types available in JavaScript, including Number, String, Boolean, Null, Undefined, Object, Symbol, and BigInt. 
+Understanding variables and data types is crucial for writing effective JavaScript code and manipulating data effectively. */

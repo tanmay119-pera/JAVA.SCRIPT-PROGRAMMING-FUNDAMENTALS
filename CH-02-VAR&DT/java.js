@@ -126,3 +126,26 @@ Blocks are commonly used in control structures like if statements, loops, and fu
 }
 
 
+//& DATA TYPES IN JAVASCRIPT (Number, String, Boolean, Null, Undefined, Object, Symbol, BigInt)
+
+/* JavaScript has several built-in data types that can be used to represent different kinds of values. The main data types in JavaScript are: */
+
+/* 1. Number: Represents numeric values, including integers and floating-point numbers. Example: 42, 3.14 
+
+2. String: Represents sequences of characters enclosed in single or double quotes. Example: "Hello, World!" 
+
+3. Boolean: Represents logical values, either true or false. Example: true, false 
+
+4. Null: Represents the intentional absence of any object value. Example: null 
+
+5. Undefined: Represents a variable that has been declared but has not been assigned a value. Example: undefined 
+
+6. Object: Represents complex data structures that can hold multiple values and properties. Example: { name: "John", age: 30 } 
+
+7. Symbol (ES6): Represents unique and immutable values that can be used as identifiers for object properties. Example: Symbol("id") 
+
+8. BigInt (ES11): Represents integers with arbitrary precision, allowing for the representation of very large numbers. Example: 9007199254740991n */
+
+/* JavaScript is a dynamically typed language, meaning that variables can hold values of different data types and can change their type during execution. 
+This flexibility allows for dynamic and adaptive coding practices. */
+

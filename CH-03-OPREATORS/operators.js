@@ -170,3 +170,134 @@ EXECUTING CERTAIN BLOCKS OF CODE ONLY WHEN SPECIFIC CONDITIONS ARE MET. AND THER
 3. If...Else If...Else Statement : IT EXECUTES DIFFERENT BLOCKS OF CODE BASED ON MULTIPLE CONDITIONS.
 4. Switch Statement : IT EVALUATES AN EXPRESSION AND EXECUTES THE BLOCK OF CODE CORRESPONDING TO THE MATCHING CASE.*/
 
+//~ 1. If Statement
+
+// The if statement executes a block of code if a specified condition is true.
+let temperature = 30;
+
+if (temperature > 25) {
+    console.log("It's a hot day!"); // It's a hot day!
+}
+
+//example of if statement with string values
+let weather = "rainy";
+
+if (weather === "rainy") {
+    console.log("Don't forget to take an umbrella!"); // Don't forget to take an umbrella!
+}  
+
+
+//~ 2. If...Else Statement
+
+// The if...else statement executes one block of code if a condition is true, and another block of code if the condition is false.
+let time = 10;
+
+if (time < 12) {
+    console.log("Good morning!"); // Good morning!
+} else {
+    console.log("Good afternoon!");
+}
+
+//example of if...else statement with string values
+let dayOfWeek = "Saturday";
+
+if (dayOfWeek === "Saturday" || dayOfWeek === "Sunday") {
+    console.log("It's the weekend!"); // It's the weekend!
+} else {
+    console.log("It's a weekday.");
+}
+
+//~ 3. If...Else If...Else Statement
+
+// The if...else if...else statement executes different blocks of code based on multiple conditions.
+let score = 85;
+
+if (score >= 90) {
+    console.log("Grade: A");
+} else if (score >= 80) {
+    console.log("Grade: B"); // Grade: B
+} else if (score >= 70) {
+    console.log("Grade: C");
+} else {
+    console.log("Grade: D");
+}
+
+//example of if...else if...else statement with string values
+let color = "blue";
+
+if (color === "red") {
+    console.log("The color is red.");
+} else if (color === "green") {
+    console.log("The color is green.");
+} else if (color === "blue") {
+    console.log("The color is blue."); // The color is blue.
+} else {
+    console.log("Unknown color.");
+}   
+
+//~ 4. Switch Statement
+
+// The switch statement evaluates an expression and executes the block of code corresponding to the matching case.
+let day = 3;
+
+switch (day) {
+    case 1:
+        console.log("Monday");
+        break;
+    case 2:
+        console.log("Tuesday");
+        break;
+    case 3:
+        console.log("Wednesday"); // Wednesday
+        break;
+    case 4:
+        console.log("Thursday");
+        break;
+    case 5:
+        console.log("Friday");
+        break;
+    case 6:
+        console.log("Saturday");
+        break;
+    case 7:
+        console.log("Sunday");
+        break;
+    default:
+        console.log("Invalid day");
+}   
+
+//example of switch statement with string values
+let fruit = "apple";
+
+switch (fruit) {
+    case "banana":
+        console.log("This is a banana.");
+        break;
+    case "apple":
+        console.log("This is an apple."); // This is an apple.
+        break;
+    case "orange":
+        console.log("This is an orange.");
+        break;
+    default:
+        console.log("Unknown fruit.");
+}   
+
+//& ABOUT MDN DOCS 
+/* The Mozilla Developer Network (MDN) provides comprehensive documentation for JavaScript, including information about operators and conditional statements. 
+so you can refer to the MDN documentation for more details and examples on these topics. You can find the documentation for operators here: 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators and for conditional statements here:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling and you can also explore other JavaScript topics on the 
+MDN website.
+
+thus, by referring to the MDN documentation, you can gain a deeper understanding of operators and conditional statements in JavaScript and enhance your 
+programming skills and will help you write more efficient and effective code.*/
+
+//& SUMMARY
+
+/* In this chapter, we have learned about operators and conditional statements in JavaScript.
+Operators are special symbols or characters that perform operations on values or variables. We have covered arithmetic, assignment, comparison, logical, ternary, type, and bitwise operators.
+
+Conditional statements allow us to control the flow of our program by executing certain blocks of code only when specific conditions are met. We have explored if statements, if...else statements, if...else if...else statements, and switch statements.
+
+By understanding and using operators and conditional statements effectively, we can write more powerful and flexible JavaScript programs. */

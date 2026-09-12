@@ -1,4 +1,4 @@
-//^                                                      CHAPTER-04 LOOPS IN JAVASCRIPT                                                                     //
+//^                                                      CHAPTER-04 LOOPS & STRINGS IN JAVASCRIPT                                                                     //
 
 //& LOOPS IN JAVASCRIPT
 
@@ -43,6 +43,7 @@ for (let i = 1; i <= 10; i++) {
 }
 //~2. While Loop
 // USED FOR REPEATING A BLOCK OF CODE AS LONG AS A SPECIFIED CONDITION IS TRUE.
+
 let j = 0;
 while (j < 5) {
     console.log("While Loop Iteration: " + j);
@@ -78,8 +79,8 @@ while (q <= 10) {
     q++;
 }
 //~3. Do...While Loop
-
 // USED FOR EXECUTING A BLOCK OF CODE ONCE, AND THEN REPEATING THE LOOP AS LONG AS A SPECIFIED CONDITION IS TRUE.
+
 let k = 0;
 do {
     console.log("Do...While Loop Iteration: " + k);
@@ -88,6 +89,7 @@ do {
 
 //~4. For...In Loop
 // USED FOR ITERATING OVER THE PROPERTIES OF AN OBJECT.
+
 const person = { name: "John", age: 30, city: "New York" };
 for (const key in person) {
     console.log(key + ": " + person[key]);
@@ -95,6 +97,7 @@ for (const key in person) {
 
 //~5. For...Of Loop
 // USED FOR ITERATING OVER THE VALUES OF AN ITERABLE OBJECT (LIKE ARRAYS, STRINGS, MAPS, SETS, ETC.).
+
 const numbers = [10, 20, 30, 40, 50];
 for (const num of numbers) {
     console.log("For...Of Loop Value: " + num);
@@ -119,8 +122,9 @@ for (const [key, value] of map) {
 }
 
 //~ CONDITIONAL TERNARY OPERATOR
+// THE CONDITIONAL (TERNARY) OPERATOR IS A SHORTCUT FOR THE IF...ELSE STATEMENT. IT TAKES THREE OPERANDS: A CONDITION, AN EXPRESSION TO EXECUTE IF THE 
+// CONDITION IS TRUE, AND AN EXPRESSION TO EXECUTE IF THE CONDITION IS FALSE.AND IT IS USED TO ASSIGN A VALUE TO A VARIABLE BASED ON A CONDITION.
 
-// THE CONDITIONAL (TERNARY) OPERATOR IS A SHORTCUT FOR THE IF...ELSE STATEMENT. IT TAKES THREE OPERANDS: A CONDITION, AN EXPRESSION TO EXECUTE IF THE CONDITION IS TRUE, AND AN EXPRESSION TO EXECUTE IF THE CONDITION IS FALSE.AND IT IS USED TO ASSIGN A VALUE TO A VARIABLE BASED ON A CONDITION.
 if (true) {
     console.log("Condition is true");
 } else {
@@ -184,10 +188,113 @@ const speedLimit = 60;
 const speedMessage = (speed > speedLimit) ? "You are speeding!" : "You are within the speed limit.";
 console.log(speedMessage);
 
-//~MDN DOCS 
-// FOR LOOP : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
-// WHILE LOOP : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
-// DO...WHILE LOOP : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while
-// FOR...IN LOOP : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
-// FOR...OF LOOP : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+//& STRING IN JAVASCRIPT
+// A STRING IS A SEQUENCE OF CHARACTERS USED TO REPRESENT TEXTUAL DATA. IN JAVASCRIPT, STRINGS ARE IMMUTABLE, MEANING ONCE A STRING IS CREATED, IT
+//  CANNOT BE MODIFIED. HOWEVER, YOU CAN CREATE NEW STRINGS BASED ON EXISTING ONES. STRINGS CAN BE CREATED USING SINGLE QUOTES (' '), DOUBLE QUOTES 
+// (" "), OR BACKTICKS (` `) FOR TEMPLATE LITERALS.
 
+const singleQuoteString = 'Hello, World!';
+const doubleQuoteString = "Hello, JavaScript!";
+const templateLiteralString = `Hello, Template Literals!`;
+
+console.log(singleQuoteString);
+console.log(doubleQuoteString);
+console.log(templateLiteralString);
+
+// ANOTHER EXAMPLE OF STRING
+const name = "Alice";
+const greeting = `Hello, ${name}! Welcome to JavaScript.`;
+console.log(greeting);
+
+// ANOTHER EXAMPLE OF STRING
+const multiLineString = `This is a string
+that spans multiple
+lines using template literals.`;
+console.log(multiLineString);
+
+// ANOTHER EXAMPLE OF STRING
+const str1 = "Hello";
+const str2 = "World";
+const combinedString = str1 + " " + str2 + "!";
+console.log(combinedString);
+
+// ANOTHER EXAMPLE OF STRING
+const lengthOfString = combinedString.length;
+console.log("Length of combined string: " + lengthOfString);
+
+// ANOTHER EXAMPLE OF STRING
+const upperCaseString = combinedString.toUpperCase();
+console.log("Uppercase: " + upperCaseString);
+
+// ANOTHER EXAMPLE OF STRING
+const lowerCaseString = combinedString.toLowerCase();
+console.log("Lowercase: " + lowerCaseString);
+
+// ANOTHER EXAMPLE OF STRING
+const substring = combinedString.substring(0, 5);
+console.log("Substring: " + substring);
+
+// ANOTHER EXAMPLE OF STRING
+const indexOfWorld = combinedString.indexOf("World");
+console.log("Index of 'World': " + indexOfWorld);
+
+// ANOTHER EXAMPLE OF STRING
+const replacedString = combinedString.replace("World", "JavaScript");
+console.log("Replaced String: " + replacedString);
+
+// ANOTHER EXAMPLE OF STRING
+const splitString = combinedString.split(" ");
+console.log("Split String: ", splitString);
+
+// ANOTHER EXAMPLE OF STRING
+const trimmedString = "   Hello, Trim!   ".trim();
+console.log("Trimmed String: '" + trimmedString + "'");
+
+// ANOTHER EXAMPLE OF STRING
+const charAtIndex = combinedString.charAt(7);
+console.log("Character at index 7: " + charAtIndex);
+
+// ANOTHER EXAMPLE OF STRING
+const includesCheck = combinedString.includes("Hello");
+console.log("Includes 'Hello': " + includesCheck);
+
+// ANOTHER EXAMPLE OF STRING
+const startsWithCheck = combinedString.startsWith("Hello");
+console.log("Starts with 'Hello': " + startsWithCheck);
+
+// ANOTHER EXAMPLE OF STRING
+const endsWithCheck = combinedString.endsWith("!");
+console.log("Ends with '!': " + endsWithCheck);
+
+// ANOTHER EXAMPLE OF STRING
+const repeatString = "Repeat! ".repeat(3);
+console.log("Repeated String: " + repeatString);
+
+// ANOTHER EXAMPLE OF STRING
+const padStartString = "5".padStart(3, "0");
+console.log("Padded Start String: " + padStartString);
+
+// ANOTHER EXAMPLE OF STRING
+const padEndString = "5".padEnd(3, "0");
+console.log("Padded End String: " + padEndString);
+
+// ANOTHER EXAMPLE OF STRING
+const charCodeAtIndex = combinedString.charCodeAt(1);
+console.log("Character code at index 1: " + charCodeAtIndex);
+
+// ANOTHER EXAMPLE OF STRING
+const fromCharCodeString = String.fromCharCode(72, 101, 108, 108, 111);
+console.log("String from char codes: " + fromCharCodeString);
+
+
+//& Summary
+/* LOOPS ARE USED TO REPEAT A BLOCK OF CODE MULTIPLE TIMES UNTIL A SPECIFIED CONDITION IS MET. THEY HELP IN AUTOMATING REPETITIVE TASKS AND REDUCING CODE REDUNDANCY.
+AND THERE ARE SEVERAL TYPES OF LOOPS IN JAVASCRIPT.
+
+1. For Loop : IT REPEATS A BLOCK OF CODE A SPECIFIED NUMBER OF TIMES.
+2. While Loop : IT REPEATS A BLOCK OF CODE AS LONG AS A SPECIFIED CONDITION IS TRUE.
+3. Do...While Loop : IT EXECUTES A BLOCK OF CODE ONCE, AND THEN REPEATS THE LOOP AS LONG AS A SPECIFIED CONDITION IS TRUE.
+4. For...In Loop : IT ITERATES OVER THE PROPERTIES OF AN OBJECT.
+5. For...Of Loop : IT ITERATES OVER THE VALUES OF AN ITERABLE OBJECT (LIKE ARRAYS, STRINGS, MAPS, SETS, ETC.).
+
+AND THE CONDITIONAL (TERNARY) OPERATOR IS A SHORTCUT FOR THE IF...ELSE STATEMENT. IT TAKES THREE OPERANDS: A CONDITION, AN EXPRESSION TO EXECUTE IF THE CONDITION IS TRUE, AND AN EXPRESSION TO EXECUTE IF THE CONDITION IS FALSE. AND IT IS USED TO ASSIGN A VALUE TO A VARIABLE BASED ON A CONDITION. */

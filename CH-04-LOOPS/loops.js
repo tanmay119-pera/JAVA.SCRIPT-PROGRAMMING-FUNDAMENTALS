@@ -17,6 +17,12 @@ AND THERE ARE SEVERAL TYPES OF LOOPS IN JAVASCRIPT.
 for (let i = 0; i < 5; i++) { // i++ STANDS FOR INCREMENTING THE VALUE OF I BY 1 AFTER EACH ITERATION.
     console.log("For Loop Iteration: " + i);
 }
+//OUTPUT :
+// For Loop Iteration: 0
+// For Loop Iteration: 1
+// For Loop Iteration: 2
+// For Loop Iteration: 3
+// For Loop Iteration: 4
 
 //ONE MORE EXAMPLE OF FOR LOOP
 
@@ -24,16 +30,42 @@ const fruits = ["Apple", "Banana", "Cherry"];
 for (let i = 0; i < fruits.length; i++) {
     console.log("Fruit: " + fruits[i]);
 }
+//OUTPUT :
+// Fruit: Apple
+// Fruit: Banana
+// Fruit: Cherry
 
 //ANOTHER EXAMPLE OF FOR LOOP
 for (let i = 1; i <= 10; i++) {
     console.log("Counting: " + i);
 }
+//OUTPUT :
+// Counting: 1
+// Counting: 2
+// Counting: 3
+// Counting: 4
+// Counting: 5
+// Counting: 6
+// Counting: 7
+// Counting: 8
+// Counting: 9
+// Counting: 10
 
 //ANOTHER EXAMPLE OF FOR LOOP
 for (let i = 10; i > 0; i--) {
     console.log("Countdown: " + i);
 }
+//OUTPUT :
+// Countdown: 10
+// Countdown: 9
+// Countdown: 8
+// Countdown: 7
+// Countdown: 6
+// Countdown: 5
+// Countdown: 4
+// Countdown: 3
+// Countdown: 2
+// Countdown: 1
 
 //ANOTHER EXAMPLE OF FOR LOOP
 for (let i = 1; i <= 10; i++) {
@@ -41,6 +73,13 @@ for (let i = 1; i <= 10; i++) {
         console.log("Even Number: " + i);
     }
 }
+//OUTPUT :
+// Even Number: 2
+// Even Number: 4
+// Even Number: 6
+// Even Number: 8
+// Even Number: 10
+
 //~2. While Loop
 // USED FOR REPEATING A BLOCK OF CODE AS LONG AS A SPECIFIED CONDITION IS TRUE.
 
@@ -49,12 +88,23 @@ while (j < 5) {
     console.log("While Loop Iteration: " + j);
     j++;
 }
+//OUTPUT :
+// While Loop Iteration: 0
+// While Loop Iteration: 1
+// While Loop Iteration: 2
+// While Loop Iteration: 3
+// While Loop Iteration: 4  
+
 //ANOTHER EXAMPLE OF WHILE LOOP
 let m = 0;
 while (m < fruits.length) {
     console.log("Fruit from While Loop: " + fruits[m]);
     m++;
 }
+//OUTPUT :
+// Fruit from While Loop: Apple
+// Fruit from While Loop: Banana
+// Fruit from While Loop: Cherry
 
 //ANOTHER EXAMPLE OF WHILE LOOP
 let n = 0;
@@ -62,6 +112,10 @@ while (n < 3) {
     console.log("Counting: " + n);
     n++;
 }
+//OUTPUT :
+// Counting: 0
+// Counting: 1
+// Counting: 2
 
 //ANOTHER EXAMPLE OF WHILE LOOP
 let p = 10;
@@ -69,6 +123,17 @@ while (p > 0) {
     console.log("Countdown: " + p);
     p--;
 }
+//OUTPUT :
+// Countdown: 10
+// Countdown: 9
+// Countdown: 8
+// Countdown: 7
+// Countdown: 6
+// Countdown: 5
+// Countdown: 4
+// Countdown: 3
+// Countdown: 2
+// Countdown: 1
 
 //ANOTHER EXAMPLE OF WHILE LOOP
 let q = 1;
@@ -78,6 +143,13 @@ while (q <= 10) {
     }
     q++;
 }
+//OUTPUT :
+// Even Number: 2
+// Even Number: 4
+// Even Number: 6
+// Even Number: 8
+// Even Number: 10
+
 //~3. Do...While Loop
 // USED FOR EXECUTING A BLOCK OF CODE ONCE, AND THEN REPEATING THE LOOP AS LONG AS A SPECIFIED CONDITION IS TRUE.
 
@@ -86,6 +158,12 @@ do {
     console.log("Do...While Loop Iteration: " + k);
     k++;
 } while (k < 5);
+//OUTPUT :
+// Do...While Loop Iteration: 0
+// Do...While Loop Iteration: 1
+// Do...While Loop Iteration: 2
+// Do...While Loop Iteration: 3
+// Do...While Loop Iteration: 4
 
 //~4. For...In Loop
 // USED FOR ITERATING OVER THE PROPERTIES OF AN OBJECT.
@@ -94,6 +172,10 @@ const person = { name: "John", age: 30, city: "New York" };
 for (const key in person) {
     console.log(key + ": " + person[key]);
 }
+//OUTPUT :
+// name: John
+// age: 30
+// city: New York
 
 //~5. For...Of Loop
 // USED FOR ITERATING OVER THE VALUES OF AN ITERABLE OBJECT (LIKE ARRAYS, STRINGS, MAPS, SETS, ETC.).
@@ -102,24 +184,46 @@ const numbers = [10, 20, 30, 40, 50];
 for (const num of numbers) {
     console.log("For...Of Loop Value: " + num);
 }   
+//OUTPUT :
+// For...Of Loop Value: 10
+// For...Of Loop Value: 20
+// For...Of Loop Value: 30
+// For...Of Loop Value: 40
+// For...Of Loop Value: 50
 
 //ANOTHER EXAMPLE OF FOR...OF LOOP
 const str = "Hello";
 for (const char of str) {
     console.log("Character: " + char);
 }  
+//OUTPUT :
+// Character: H
+// Character: e
+// Character: l
+// Character: l
+// Character: o
 
 //ANOTHER EXAMPLE OF FOR...OF LOOP
 const set = new Set([1, 2, 3, 4, 5]);
 for (const value of set) {
     console.log("Set Value: " + value);
 }   
+//OUTPUT :
+// Set Value: 1
+// Set Value: 2
+// Set Value: 3
+// Set Value: 4
+// Set Value: 5
 
 //ANOTHER EXAMPLE OF FOR...OF LOOP  
 const map = new Map([["a", 1], ["b", 2], ["c", 3]]);
 for (const [key, value] of map) {
     console.log("Map Key: " + key + ", Value: " + value);
 }
+//OUTPUT :
+// Map Key: a, Value: 1
+// Map Key: b, Value: 2
+// Map Key: c, Value: 3
 
 //~ CONDITIONAL TERNARY OPERATOR
 // THE CONDITIONAL (TERNARY) OPERATOR IS A SHORTCUT FOR THE IF...ELSE STATEMENT. IT TAKES THREE OPERANDS: A CONDITION, AN EXPRESSION TO EXECUTE IF THE 
@@ -130,19 +234,22 @@ if (true) {
 } else {
     console.log("Condition is false");
 }
-
+// OUTPUT : Condition is true
 // USING CONDITIONAL TERNARY OPERATOR
 true ? console.log("Condition is true") : console.log("Condition is false");
+// OUTPUT : Condition is true
 
 // ANOTHER EXAMPLE OF CONDITIONAL TERNARY OPERATOR
 const age = 18;
 const canVote = (age >= 18) ? "Yes, you can vote." : "No, you cannot vote.";
 console.log(canVote);
+// OUTPUT : Yes, you can vote.
 
 // ANOTHER EXAMPLE OF CONDITIONAL TERNARY OPERATOR
 const number = 10;
 const result = (number % 2 === 0) ? "Even Number" : "Odd Number";
 console.log(result);
+// OUTPUT : Even Number
 
 // ANOTHER EXAMPLE OF CONDITIONAL TERNARY OPERATOR
 const score = 85;
@@ -151,42 +258,50 @@ const grade = (score >= 90) ? "A" :
               (score >= 70) ? "C" :
               (score >= 60) ? "D" : "F";
 console.log("Grade: " + grade);
+// OUTPUT : Grade: B
 
 // ANOTHER EXAMPLE OF CONDITIONAL TERNARY OPERATOR
 const isMember = true;
 const discount = isMember ? 0.1 : 0;
 console.log("Discount: " + (discount * 100) + "%");
+// OUTPUT : Discount: 10%
 
 // ANOTHER EXAMPLE OF CONDITIONAL TERNARY OPERATOR
 const temperature = 30;
 const weather = (temperature > 25) ? "Hot" : "Cold";
 console.log("Weather: " + weather);
+// OUTPUT : Weather: Hot
 
 // ANOTHER EXAMPLE OF CONDITIONAL TERNARY OPERATOR
 const isLoggedIn = false;
 const message = isLoggedIn ? "Welcome back!" : "Please log in.";
 console.log(message);
+// OUTPUT : Please log in.
 
 // ANOTHER EXAMPLE OF CONDITIONAL TERNARY OPERATOR
 const day = "Saturday";
 const activity = (day === "Saturday" || day === "Sunday") ? "Relax" : "Work";
 console.log("Activity: " + activity);
+// OUTPUT : Activity: Relax
 
 // ANOTHER EXAMPLE OF CONDITIONAL TERNARY OPERATOR
 const number2 = -5;
 const sign = (number2 > 0) ? "Positive" : (number2 < 0) ? "Negative" : "Zero";
 console.log("Sign: " + sign);
+// OUTPUT : Sign: Negative
 
 // ANOTHER EXAMPLE OF CONDITIONAL TERNARY OPERATOR
 const isRaining = true;
 const action = isRaining ? "Take an umbrella." : "Enjoy the sunshine.";
 console.log(action);
+// OUTPUT : Take an umbrella.
 
 // ANOTHER EXAMPLE OF CONDITIONAL TERNARY OPERATOR
 const speed = 80;
 const speedLimit = 60;
 const speedMessage = (speed > speedLimit) ? "You are speeding!" : "You are within the speed limit.";
 console.log(speedMessage);
+// OUTPUT : You are speeding!
 
 //& STRING IN JAVASCRIPT
 // A STRING IS A SEQUENCE OF CHARACTERS USED TO REPRESENT TEXTUAL DATA. IN JAVASCRIPT, STRINGS ARE IMMUTABLE, MEANING ONCE A STRING IS CREATED, IT
@@ -200,17 +315,26 @@ const templateLiteralString = `Hello, Template Literals!`;
 console.log(singleQuoteString);
 console.log(doubleQuoteString);
 console.log(templateLiteralString);
+// OUTPUT:
+// Hello, World!
+// Hello, JavaScript!
+// Hello, Template Literals!
 
 // ANOTHER EXAMPLE OF STRING
 const name = "Alice";
 const greeting = `Hello, ${name}! Welcome to JavaScript.`;
 console.log(greeting);
+// OUTPUT: Hello, Alice! Welcome to JavaScript.
 
 // ANOTHER EXAMPLE OF STRING
 const multiLineString = `This is a string
 that spans multiple
 lines using template literals.`;
 console.log(multiLineString);
+/// OUTPUT:
+// This is a string
+// that spans multiple
+// lines using template literals.
 
 // ANOTHER EXAMPLE OF STRING
 const str1 = "Hello";

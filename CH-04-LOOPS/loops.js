@@ -395,4 +395,97 @@ console.log(backspaceExample);
 // ANOTHER EXAMPLE OF ESCAPE CHARACTERS
 const verticalTabExample = "This is a string with a vertical tab character.\vVertical tabbed text.";
 console.log(verticalTabExample);
-// OUTPUT: This is a string with a vertical tab character.\vVertical tabbed text.
+// OUTPUT: This is a string with a vertical tab character.\vVertical tabbed text. 
+
+//& STRING METHODS IN JAVASCRIPT
+// STRING METHODS ARE BUILT-IN FUNCTIONS IN JAVASCRIPT THAT ALLOW YOU TO MANIPULATE AND WORK WITH STRINGS. THEY PROVIDE VARIOUS OPERATIONS SUCH AS 
+// CONCATENATION, SEARCHING, REPLACING, SPLITTING, AND MORE. HERE ARE SOME COMMONLY USED STRING METHODS:
+
+const sampleString = "Hello, JavaScript!";
+
+// 1. charAt() - Returns the character at a specified index.
+console.log(sampleString.charAt(7)); // OUTPUT: J
+
+// 2. concat() - Combines two or more strings.
+const string1 = "Hello";
+const string2 = "World";
+console.log(string1.concat(", ", string2, "!")); // OUTPUT: Hello, World!
+
+// 3. includes() - Checks if a string contains a specified substring.
+console.log(sampleString.includes("JavaScript")); // OUTPUT: true
+
+// 4. indexOf() - Returns the index of the first occurrence of a specified substring.
+console.log(sampleString.indexOf("JavaScript")); // OUTPUT: 7
+
+// 5. lastIndexOf() - Returns the index of the last occurrence of a specified substring.
+console.log(sampleString.lastIndexOf("o")); // OUTPUT: 4
+
+// 6. replace() - Replaces a specified substring with another substring.
+console.log(sampleString.replace("JavaScript", "JS")); // OUTPUT: Hello, JS!
+
+// 7. split() - Splits a string into an array of substrings based on a specified separator.
+console.log(sampleString.split(", ")); // OUTPUT: [ 'Hello', 'JavaScript!' ]
+
+// 8. toLowerCase() - Converts a string to lowercase.
+console.log(sampleString.toLowerCase()); // OUTPUT: hello, javascript!
+
+// 9. toUpperCase() - Converts a string to uppercase.
+console.log(sampleString.toUpperCase()); // OUTPUT: HELLO, JAVASCRIPT!
+
+// 10. trim() - Removes whitespace from both ends of a string.
+const stringWithWhitespace = "   Hello, World!   ";
+console.log(stringWithWhitespace.trim()); // OUTPUT: Hello, World!
+
+// 11. startsWith() - Checks if a string starts with a specified substring.
+console.log(sampleString.startsWith("Hello")); // OUTPUT: true
+
+// 12. endsWith() - Checks if a string ends with a specified substring.
+console.log(sampleString.endsWith("!")); // OUTPUT: true
+
+// 13. repeat() - Returns a new string that repeats the original string a specified number of times.
+console.log("Repeat! ".repeat(3)); // OUTPUT: Repeat! Repeat! Repeat!
+
+// 14. padStart() - Pads the current string with another string until it reaches a specified length.
+console.log("5".padStart(3, "0")); // OUTPUT: 005
+
+// 15. padEnd() - Pads the current string with another string until it reaches a specified length.
+console.log("5".padEnd(3, "0")); // OUTPUT: 500
+
+// 16. substring() - Returns a portion of the string between two specified indices.
+console.log(sampleString.substring(7, 17)); // OUTPUT: JavaScript
+
+// 17. slice() - Extracts a section of a string and returns it as a new string.
+console.log(sampleString.slice(7, 17)); // OUTPUT: JavaScript
+
+// 18. match() - Retrieves the matches of a string against a regular expression.
+const regex = /JavaScript/;
+console.log(sampleString.match(regex)); // OUTPUT: [ 'JavaScript', index: 7, input: 'Hello, JavaScript!', groups: undefined ]
+
+// 19. search() - Searches for a match between a string and a regular expression.
+console.log(sampleString.search(regex)); // OUTPUT: 7
+
+// 20. valueOf() - Returns the primitive value of a String object.
+const stringObject = new String("Hello, World!");
+console.log(stringObject.valueOf()); // OUTPUT: Hello, World!
+
+//& STRING INTERPOLATION IN JAVASCRIPT
+// STRING INTERPOLATION IS A FEATURE IN JAVASCRIPT THAT ALLOWS YOU TO EMBED EXPRESSIONS AND VARIABLES DIRECTLY WITHIN A STRING. IT PROVIDES A MORE READABLE 
+// AND CONVENIENT WAY TO CREATE STRINGS BY USING TEMPLATE LITERALS (BACKTICKS) AND PLACEHOLDERS (${expression}) FOR DYNAMIC CONTENT.
+
+const userName = "Alice";
+const userAge = 25;
+const Greeting = `Hello, ${userName}! You are ${userAge} years old.`;
+console.log(Greeting);
+// OUTPUT: Hello, Alice! You are 25 years old.
+
+// ANOTHER EXAMPLE OF STRING INTERPOLATION
+const item = "laptop";
+const price = 999.99;
+const itemMessage = `The price of the ${item} is $${price}.`;
+console.log(itemMessage);
+// OUTPUT: The price of the laptop is $999.99.
+
+//& SUMMARY :
+// IN THIS CHAPTER, WE EXPLORED LOOPS AND STRINGS IN JAVASCRIPT. WE LEARNED ABOUT DIFFERENT TYPES OF LOOPS (FOR, WHILE, DO...WHILE, FOR...IN, FOR...OF) AND HOW TO USE THEM TO REPEAT CODE BLOCKS.
+// WE ALSO DISCUSSED STRINGS, THEIR IMMUTABLE NATURE, AND VARIOUS STRING METHODS FOR MANIPULATION. ADDITIONALLY, WE COVERED ESCAPE CHARACTERS, TEMPLATE LITERALS, AND STRING INTERPOLATION FOR DYNAMIC CONTENT IN STRINGS. 
+// THESE CONCEPTS ARE FUNDAMENTAL IN JAVASCRIPT PROGRAMMING AND PROVIDE A STRONG FOUNDATION FOR WORKING WITH DATA AND CONTROL FLOW. AND THIS IS THE END OF CHAPTER-04 LOOPS & STRINGS IN JAVASCRIPT.

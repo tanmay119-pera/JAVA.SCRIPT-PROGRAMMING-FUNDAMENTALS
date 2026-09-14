@@ -217,84 +217,182 @@ const str1 = "Hello";
 const str2 = "World";
 const combinedString = str1 + " " + str2 + "!";
 console.log(combinedString);
+// OUTPUT: Hello World!
 
 // ANOTHER EXAMPLE OF STRING
 const lengthOfString = combinedString.length;
 console.log("Length of combined string: " + lengthOfString);
+// OUTPUT: Length of combined string: 12
 
 // ANOTHER EXAMPLE OF STRING
 const upperCaseString = combinedString.toUpperCase();
 console.log("Uppercase: " + upperCaseString);
+// OUTPUT: Uppercase: HELLO WORLD!
 
 // ANOTHER EXAMPLE OF STRING
 const lowerCaseString = combinedString.toLowerCase();
 console.log("Lowercase: " + lowerCaseString);
+// OUTPUT: Lowercase: hello world!
 
 // ANOTHER EXAMPLE OF STRING
 const substring = combinedString.substring(0, 5);
 console.log("Substring: " + substring);
+// OUTPUT: Substring: Hello
 
 // ANOTHER EXAMPLE OF STRING
 const indexOfWorld = combinedString.indexOf("World");
 console.log("Index of 'World': " + indexOfWorld);
+// OUTPUT: Index of 'World': 6
 
 // ANOTHER EXAMPLE OF STRING
 const replacedString = combinedString.replace("World", "JavaScript");
 console.log("Replaced String: " + replacedString);
+// OUTPUT: Replaced String: Hello JavaScript!
 
 // ANOTHER EXAMPLE OF STRING
 const splitString = combinedString.split(" ");
 console.log("Split String: ", splitString);
+// OUTPUT: Split String:  [ 'Hello', 'World!' ]
 
 // ANOTHER EXAMPLE OF STRING
 const trimmedString = "   Hello, Trim!   ".trim();
 console.log("Trimmed String: '" + trimmedString + "'");
+// OUTPUT: Trimmed String: 'Hello, Trim!'
 
 // ANOTHER EXAMPLE OF STRING
 const charAtIndex = combinedString.charAt(7);
 console.log("Character at index 7: " + charAtIndex);
+// OUTPUT: Character at index 7: o
 
 // ANOTHER EXAMPLE OF STRING
 const includesCheck = combinedString.includes("Hello");
 console.log("Includes 'Hello': " + includesCheck);
+// OUTPUT: Includes 'Hello': true
 
 // ANOTHER EXAMPLE OF STRING
 const startsWithCheck = combinedString.startsWith("Hello");
 console.log("Starts with 'Hello': " + startsWithCheck);
+// OUTPUT: Starts with 'Hello': true
 
 // ANOTHER EXAMPLE OF STRING
 const endsWithCheck = combinedString.endsWith("!");
 console.log("Ends with '!': " + endsWithCheck);
+// OUTPUT: Ends with '!': true
 
 // ANOTHER EXAMPLE OF STRING
 const repeatString = "Repeat! ".repeat(3);
 console.log("Repeated String: " + repeatString);
+// OUTPUT: Repeated String: Repeat! Repeat! Repeat!
 
 // ANOTHER EXAMPLE OF STRING
 const padStartString = "5".padStart(3, "0");
 console.log("Padded Start String: " + padStartString);
+// OUTPUT: Padded Start String: 005
 
 // ANOTHER EXAMPLE OF STRING
 const padEndString = "5".padEnd(3, "0");
 console.log("Padded End String: " + padEndString);
+// OUTPUT: Padded End String: 500
 
 // ANOTHER EXAMPLE OF STRING
 const charCodeAtIndex = combinedString.charCodeAt(1);
 console.log("Character code at index 1: " + charCodeAtIndex);
+// OUTPUT: Character code at index 1: 101
 
 // ANOTHER EXAMPLE OF STRING
 const fromCharCodeString = String.fromCharCode(72, 101, 108, 108, 111);
 console.log("String from char codes: " + fromCharCodeString);
+// OUTPUT: String from char codes: Hello
 
+//& Template Literals in JavaScript
+// TEMPLATE LITERALS ARE A FEATURE IN JAVASCRIPT THAT ALLOWS FOR EMBEDDING EXPRESSIONS AND MULTI-LINE STRINGS USING BACKTICKS (` `). THEY PROVIDE A MORE 
+// CONVENIENT WAY TO CREATE STRINGS AND INCLUDE VARIABLES OR EXPRESSIONS DIRECTLY WITHIN THE STRING. ` = is symbol for template literals `*/
 
-//& Summary
-/* LOOPS ARE USED TO REPEAT A BLOCK OF CODE MULTIPLE TIMES UNTIL A SPECIFIED CONDITION IS MET. THEY HELP IN AUTOMATING REPETITIVE TASKS AND REDUCING CODE REDUNDANCY.
-AND THERE ARE SEVERAL TYPES OF LOOPS IN JAVASCRIPT.
+let specialString = `This is a special string with a variable: ${name} and an expression: ${2 + 2}.`;
+console.log(specialString);
 
-1. For Loop : IT REPEATS A BLOCK OF CODE A SPECIFIED NUMBER OF TIMES.
-2. While Loop : IT REPEATS A BLOCK OF CODE AS LONG AS A SPECIFIED CONDITION IS TRUE.
-3. Do...While Loop : IT EXECUTES A BLOCK OF CODE ONCE, AND THEN REPEATS THE LOOP AS LONG AS A SPECIFIED CONDITION IS TRUE.
-4. For...In Loop : IT ITERATES OVER THE PROPERTIES OF AN OBJECT.
-5. For...Of Loop : IT ITERATES OVER THE VALUES OF AN ITERABLE OBJECT (LIKE ARRAYS, STRINGS, MAPS, SETS, ETC.).
+// ANOTHER EXAMPLE OF TEMPLATE LITERALS
+const a = 5;
+const b = 10;
+const sumString = `The sum of ${a} and ${b} is ${a + b}.`;
+console.log(sumString);
+// ANOTHER EXAMPLE OF TEMPLATE LITERALS
 
-AND THE CONDITIONAL (TERNARY) OPERATOR IS A SHORTCUT FOR THE IF...ELSE STATEMENT. IT TAKES THREE OPERANDS: A CONDITION, AN EXPRESSION TO EXECUTE IF THE CONDITION IS TRUE, AND AN EXPRESSION TO EXECUTE IF THE CONDITION IS FALSE. AND IT IS USED TO ASSIGN A VALUE TO A VARIABLE BASED ON A CONDITION. */
+// ANOTHER EXAMPLE OF TEMPLATE LITERALS
+const multiLineTemplate = `This is a multi-line string.
+It can span multiple lines.
+Using template literals makes it easy.`;
+console.log(multiLineTemplate);
+// OUTPUT :
+// This is a multi-line string.
+// It can span multiple lines.
+// Using template literals makes it easy.
+
+// ANOTHER EXAMPLE OF TEMPLATE LITERALS
+const user = { firstName: "John", lastName: "Doe" };
+const userGreeting = `Hello, ${user.firstName} ${user.lastName}! Welcome to our website.`;
+console.log(userGreeting);
+//OUTPUT : Hello, John Doe! Welcome to our website.
+
+// ANOTHER EXAMPLE OF TEMPLATE LITERALS
+const product = { name: "Laptop", price: 999.99 };
+const productInfo = `The product ${product.name} costs $${product.price}.`;
+console.log(productInfo);
+// OUTPUT: The product Laptop costs $999.99.
+//basically this is the code for loops and strings in javascript.
+
+//& ESCAPE CHARACTERS IN JAVASCRIPT
+// ESCAPE CHARACTERS ARE SPECIAL CHARACTERS IN JAVASCRIPT THAT ALLOW YOU TO INCLUDE CHARACTERS IN A STRING THAT WOULD OTHERWISE BE DIFFICULT OR IMPOSSIBLE TO 
+// INCLUDE DIRECTLY. THEY ARE PRECEDED BY A BACKSLASH (\) AND CAN REPRESENT CHARACTERS LIKE NEWLINES, TABS, QUOTES, AND MORE.
+
+const escapeExample = "This is a string with a newline character.\nAnd this is the second line.";
+console.log(escapeExample);
+// OUTPUT:
+// This is a string with a newline character.
+// And this is the second line.
+
+// ANOTHER EXAMPLE OF ESCAPE CHARACTERS
+const tabExample = "This is a string with a tab character.\tHere is the tabbed text.";
+console.log(tabExample);
+// OUTPUT: This is a string with a tab character.    Here is the tabbed text.
+
+// ANOTHER EXAMPLE OF ESCAPE CHARACTERS
+const quoteExample = "He said, \"Hello!\" and waved.";
+console.log(quoteExample);
+// OUTPUT: He said, "Hello!" and waved.
+
+// ANOTHER EXAMPLE OF ESCAPE CHARACTERS
+const backslashExample = "This is a backslash: \\";
+console.log(backslashExample);
+// OUTPUT: This is a backslash: \
+
+// ANOTHER EXAMPLE OF ESCAPE CHARACTERS
+const singleQuoteExample = 'It\'s a beautiful day!';
+console.log(singleQuoteExample);
+// OUTPUT: It's a beautiful day!
+
+// ANOTHER EXAMPLE OF ESCAPE CHARACTERS
+const unicodeExample = "This is a Unicode character: \u2764"; // Heart symbol
+console.log(unicodeExample);
+// OUTPUT: This is a Unicode character: ❤
+
+// ANOTHER EXAMPLE OF ESCAPE CHARACTERS
+const carriageReturnExample = "This is a string with a carriage return.\rOverwritten text.";
+console.log(carriageReturnExample);
+// OUTPUT: Overwritten text.
+
+// ANOTHER EXAMPLE OF ESCAPE CHARACTERS
+const formFeedExample = "This is a string with a form feed character.\fNew page starts here.";
+console.log(formFeedExample);
+//OUTPUT: This is a string with a form feed character.
+//New page starts here.
+
+// ANOTHER EXAMPLE OF ESCAPE CHARACTERS
+const backspaceExample = "This is a string with a backspace character.\bBackspaced text.";
+console.log(backspaceExample);
+// OUTPUT: This is a string with a backspace character.Backspaced text.
+
+// ANOTHER EXAMPLE OF ESCAPE CHARACTERS
+const verticalTabExample = "This is a string with a vertical tab character.\vVertical tabbed text.";
+console.log(verticalTabExample);
+// OUTPUT: This is a string with a vertical tab character.\vVertical tabbed text.

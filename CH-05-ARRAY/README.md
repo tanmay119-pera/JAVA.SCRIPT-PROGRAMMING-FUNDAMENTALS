@@ -1,8 +1,16 @@
 <div align="center">
 
-<!-- COMPACT HERO BANNER -
-<!-- COMPACT TYPING BANNER -->
+<!-- HERO BANNER PHOTO -->
+<p align="center">
+  <img src="./banner.png" alt="JavaScript Arrays Banner" width="100%" style="max-width: 960px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);" />
+</p>
 
+<!-- COMPACT TYPING BANNER -->
+<p align="center">
+  <a href="https://github.com/tanmay119-pera">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=15&duration=2400&pause=1000&color=EAB308&background=00000000&center=true&vCenter=true&repeat=true&width=540&lines=%E2%9A%A1+JavaScript+Arrays+Handbook+%E2%80%A2+Chapter+5;%F0%9F%93%96+Pure+Written+Theory+%26+Core+Mechanics;%F0%9F%94%84+Zero-Indexing%2C+Dynamic+Storage+%26+Loops;%F0%9F%9B%A0%EF%B8%8F+24+Essential+Built-In+Array+Methods;%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB+Curated+by+Tanmay+(Adesh+Srivastava)" alt="Typing Banner" />
+  </a>
+</p>
 
 <!-- BADGES BAR -->
 <p align="center">
@@ -17,13 +25,8 @@
 > An exhaustive, purely written theoretical handbook and pedagogical reference on JavaScript Arrays. Designed for learners, students, and engineers seeking deep conceptual clarity on memory representation, index arithmetic, traversal loops, and all 24 fundamental array methods.
 
 ---
-<p align="center">
-  <a href="https://github.com/tanmay119-pera">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=15&duration=2400&pause=1000&color=EAB308&background=00000000&center=true&vCenter=true&repeat=true&width=540&lines=%E2%9A%A1+JavaScript+Arrays+Handbook+%E2%80%A2+Chapter+5;%F0%9F%93%96+Pure+Written+Theory+%26+Core+Mechanics;%F0%9F%94%84+Zero-Indexing%2C+Dynamic+Storage+%26+Loops;%F0%9F%9B%A0%EF%B8%8F+24+Essential+Built-In+Array+Methods;%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB+Curated+by+Tanmay+(Adesh+Srivastava)" alt="Typing Banner" />
-  </a>
-</p>
 
-</>
+</div>
 
 ## 📑 Table of Contents
 

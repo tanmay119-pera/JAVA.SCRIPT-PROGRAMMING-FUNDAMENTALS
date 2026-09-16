@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c14"/>
+      <stop offset="50%" stop-color="#141c2e"/>
+      <stop offset="100%" stop-color="#080c14"/>
+    </linearGradient>
+
+    <!-- Title Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F7DF1E"/>
+      <stop offset="50%" stop-color="#FACC15"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Author Badge Gradient -->
+    <linearGradient id="authorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 900; font-size: 38px; fill: url(#goldGrad); letter-spacing: 1.5px; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 500; font-size: 15px; fill: #94a3b8; }
+    .tag { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 600; font-size: 12px; fill: #f8fafc; }
+    .author-tag { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 700; font-size: 11px; fill: #00D4FF; letter-spacing: 0.6px; }
+    .pill { rx: 14px; ry: 14px; }
+  </style>
+
+  <!-- Background Canvas -->
+  <rect width="960" height="220" rx="14" fill="url(#bgGrad)"/>
+  
+  <!-- Outer Subtle Border -->
+  <rect x="2" y="2" width="956" height="216" rx="12" fill="none" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Decorative Ambient Glows -->
+  <circle cx="860" cy="40" r="120" fill="#F7DF1E" fill-opacity="0.06"/>
+  <circle cx="90" cy="180" r="100" fill="#38bdf8" fill-opacity="0.05"/>
+
+  <!-- Inner Content Card -->
+  <rect x="24" y="20" width="912" height="180" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1"/>
+
+  <!-- Header Content Group: JS Logo + Title -->
+  <g transform="translate(48, 42)">
+    <!-- JavaScript Official Logo Badge -->
+    <rect x="0" y="2" width="52" height="52" rx="8" fill="#F7DF1E"/>
+    <text x="26" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="30" fill="#000000" text-anchor="middle">JS</text>
+    
+    <!-- Title & Chapter Subtitle -->
+    <text x="68" y="34" class="title">JAVASCRIPT ARRAYS</text>
+    <text x="68" y="54" class="subtitle">CHAPTER 5 • Complete Written Handbook • Zero-Indexing &amp; 24 Methods</text>
+  </g>
+
+  <!-- Feature Pills -->
+  <g transform="translate(48, 126)">
+    <!-- Pill 1: ES6+ Standards -->
+    <rect x="0" y="0" width="135" height="28" class="pill" fill="#854d0e" fill-opacity="0.45" stroke="#eab308" stroke-width="1"/>
+    <text x="67" y="18" text-anchor="middle" class="tag">⚡ ES6+ Arrays</text>
+
+    <!-- Pill 2: Zero-Indexing -->
+    <rect x="145" y="0" width="130" height="28" class="pill" fill="#1e3a8a" fill-opacity="0.5" stroke="#3b82f6" stroke-width="1"/>
+    <text x="210" y="18" text-anchor="middle" class="tag">🔢 Zero-Indexed</text>
+
+    <!-- Pill 3: Traversal Loops -->
+    <rect x="285" y="0" width="135" height="28" class="pill" fill="#4c1d95" fill-opacity="0.5" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="352" y="18" text-anchor="middle" class="tag">🔁 Traversal Loops</text>
+
+    <!-- Pill 4: 24 Core Methods -->
+    <rect x="430" y="0" width="155" height="28" class="pill" fill="#065f46" fill-opacity="0.5" stroke="#10b981" stroke-width="1"/>
+    <text x="507" y="18" text-anchor="middle" class="tag">🛠️ 24 Core Methods</text>
+  </g>
+
+  <!-- Author Badge: CONTRIBUTED BY TANMAY (ADESH SRIVASTAVA) -->
+  <g transform="translate(620, 146)">
+    <rect x="0" y="0" width="290" height="28" rx="14" fill="#080c14" stroke="#00D4FF" stroke-width="1"/>
+    <text x="145" y="18" text-anchor="middle" class="author-tag">MADE WITH ❤️ BY ADESH SRIVASTAVA</text>
+  </g>
+</svg>

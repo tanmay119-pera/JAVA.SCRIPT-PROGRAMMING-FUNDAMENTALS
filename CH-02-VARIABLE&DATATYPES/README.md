@@ -1,14 +1,6 @@
-<div align="center">
+# Chapter 02: Variables and Data Types
 
-<!-- HERO TYPING BANNER -->
-<p align="center">
-  <a href="https://github.com/tanmay119-pera">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=16&duration=2400&pause=1000&color=38BDF8&background=00000000&center=true&vCenter=true&repeat=true&width=580&lines=%E2%9A%A1+JavaScript+Foundations+%E2%80%A2+Chapter+02;%F0%9F%93%A6+Variables%2C+Memory+Allocation+%26+Scope;%F0%9F%94%B1+Var+vs+Let+vs+Const+Deep-Dive;%F0%9F%A7%A9+All+8+JavaScript+Primitive+%26+Object+Types;%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB+Curated+by+Tanmay+(Adesh+Srivastava)" alt="Typing Banner" />
-  </a>
-</p>
-
-<!-- BADGES BAR -->
-<p align="center">
+<p align="left">
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" /></a>
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures"><img src="https://img.shields.io/badge/Data_Types-8_Built--in_Types-00D4FF?style=for-the-badge&logo=codecademy&logoColor=white" alt="Data Types" /></a>
   <a href="https://code.visualstudio.com/"><img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" /></a>
@@ -16,12 +8,10 @@
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-2ea44f?style=for-the-badge" alt="License" /></a>
 </p>
 
-> **Chapter 02: Variables & Data Types in JavaScript**  
+> **Overview**  
 > An exhaustive, master-level pedagogical handbook on memory storage, scoping mechanics (`var`, `let`, `const`), dynamic type coercion, and all 8 JavaScript data types (Primitives vs Reference Objects).
 
 ---
-
-</div>
 
 ## 📑 Table of Contents
 
@@ -399,7 +389,3 @@ console.log(student.address.zipCode);    // "10001"      (Nested object access)
 ## 📄 License
 
 This educational handbook is distributed under the **MIT License**. Free to study, reference, adapt, and share!
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=soft&color=0:0F172A,45:0284C7,100:38BDF8&height=80&section=footer&text=%E2%9A%A1%20KEEP%20LEARNING%20%E2%80%A2%20KEEP%20BUILDING%20%E2%9A%A1&fontSize=16&fontAlignY=55&fontColor=ffffff&desc=Written%20%26%20Curated%20by%20Tanmay%20(Adesh%20Srivastava)&descSize=11&descAlignY=76&descColor=bae6fd" width="80%" alt="Footer Banner" />
-</p>

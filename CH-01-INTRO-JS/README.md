@@ -305,17 +305,20 @@ Here is the master roadmap introduced in `intro-to-java.js`:
 
 ---
 
-## 🤝 10. Contribution & Author Details
+## 👨‍💻 Author & Maintainer
 
 <table align="center" width="100%">
   <tr>
     <td align="center" width="100%" style="padding: 24px; background: #0d1117; border-radius: 12px; border: 1px solid #30363d;">
-      <h3>⚡ Authored & Engineered by: Tanmay (Adesh Srivastava)</h3>
+      <a href="https://github.com/tanmay119-pera">
+        <img src="https://github.com/tanmay119-pera.png" width="90px" style="border-radius: 50%; border: 3px solid #00D4FF; box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);" alt="Tanmay (Adesh Srivastava)" />
+      </a>
+      <h3 style="margin-top: 12px;">⚡ Authored & Engineered by: Tanmay (Adesh Srivastava)</h3>
       <p><em>Agentic AI Developer • Systems Architect • AI Builder</em></p>
       <p>
         Building foundational computer science handbooks, multi-agent frameworks, and high-performance open-source documentation.
       </p>
-      <div align="center">
+      <div align="center" style="margin-top: 14px;">
         <a href="https://github.com/tanmay119-pera">
           <img src="https://img.shields.io/badge/GitHub-tanmay119--pera-00D4FF?style=for-the-badge&logo=github&logoColor=black&labelColor=080C14" alt="GitHub" />
         </a>

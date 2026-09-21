@@ -1,19 +1,6 @@
-<div align="center">
+# Chapter 05: Arrays in JavaScript
 
-<!-- HERO BANNER PHOTO -->
-<p align="center">
-  <img src="./banner.png" alt="JavaScript Arrays Banner" width="100%" style="max-width: 960px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);" />
-</p>
-
-<!-- COMPACT TYPING BANNER -->
-<p align="center">
-  <a href="https://github.com/tanmay119-pera">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=15&duration=2400&pause=1000&color=EAB308&background=00000000&center=true&vCenter=true&repeat=true&width=540&lines=%E2%9A%A1+JavaScript+Arrays+Handbook+%E2%80%A2+Chapter+5;%F0%9F%93%96+Pure+Written+Theory+%26+Core+Mechanics;%F0%9F%94%84+Zero-Indexing%2C+Dynamic+Storage+%26+Loops;%F0%9F%9B%A0%EF%B8%8F+24+Essential+Built-In+Array+Methods;%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB+Curated+by+Tanmay+(Adesh+Srivastava)" alt="Typing Banner" />
-  </a>
-</p>
-
-<!-- BADGES BAR -->
-<p align="center">
+<p align="left">
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" /></a>
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"><img src="https://img.shields.io/badge/Data_Structure-Array-FF6B6B?style=for-the-badge&logo=codecademy&logoColor=white" alt="Array Data Structure" /></a>
   <a href="https://code.visualstudio.com/"><img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" /></a>
@@ -21,12 +8,10 @@
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-2ea44f?style=for-the-badge" alt="License" /></a>
 </p>
 
-> **Chapter 5: Arrays in JavaScript**  
+> **Overview**  
 > An exhaustive, purely written theoretical handbook and pedagogical reference on JavaScript Arrays. Designed for learners, students, and engineers seeking deep conceptual clarity on memory representation, index arithmetic, traversal loops, and all 24 fundamental array methods.
 
 ---
-
-</div>
 
 ## 📑 Table of Contents
 
@@ -801,7 +786,3 @@ In modern web development (particularly in state-driven UI libraries like React,
 ## 📄 License
 
 This educational handbook is distributed under the **MIT License**. Free to study, reference, adapt, and share!
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=soft&color=0:0F172A,45:F59E0B,100:F7DF1E&height=80&section=footer&text=%E2%9A%A1%20KEEP%20LEARNING%20%E2%80%A2%20KEEP%20BUILDING%20%E2%9A%A1&fontSize=16&fontAlignY=55&fontColor=ffffff&desc=Written%20%26%20Curated%20by%20Tanmay%20(Adesh%20Srivastava)&descSize=11&descAlignY=76&descColor=fef3c7" width="80%" alt="Footer Banner" />
-</p>

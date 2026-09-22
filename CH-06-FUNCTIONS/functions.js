@@ -4,116 +4,127 @@
 //~ THEY HELP IN ORGANIZING CODE, AVOIDING DUPLICATION, AND MAKING PROGRAMS MODULAR AND MAINTAINABLE. WE WILL COVER FUNCTION DECLARATIONS, 
 //~ EXPRESSIONS, ARROW FUNCTIONS, PARAMETERS, RETURN VALUES, SCOPE, CLOSURES, AND HIGHER-ORDER FUNCTIONS.
 
-//& 1. FUNCTION DECLARATION
-function greet() {
-    console.log("Hello, World! Welcome to Chapter 6 on Functions.");
-}
-greet(); // Calling / Invoking the function
+//& FUNCTION 
+// A function is a block of code that performs a specific task. It can be defined once and called multiple times throughout the program. Functions can take inputs (parameters) and return outputs (return values).
 
-//& 2. FUNCTION PARAMETERS AND ARGUMENTS
-function greetUser(userName) {
-    console.log("Welcome back, " + userName + "!");
-}
-greetUser("Tanmay");
-greetUser("Alice");
+//& FUNCTION DECLARATION
+// A function declaration defines a named function. It consists of the 'function' keyword, followed by the function name, a list of parameters in parentheses, and a block of code enclosed in curly braces.
 
-// Function with multiple parameters
-function add(num1, num2) {
-    return num1 + num2; // Return statement passes the output back
+function greet(name) {
+    return `Hello, ${name}!`;
 }
-let sumResult = add(15, 25);
-console.log("Sum: " + sumResult); // Output: Sum: 40
 
-//& 3. DEFAULT PARAMETERS (ES6)
-function calculateTotal(price, taxRate = 0.05) {
-    return price + (price * taxRate);
-}
-console.log("Total with default tax: " + calculateTotal(100)); // 105
-console.log("Total with custom tax: " + calculateTotal(100, 0.10)); // 110
+// Calling the function
+console.log(greet("Alice")); // Output: Hello, Alice!
 
-//& 4. REST PARAMETERS (ES6)
-function sumAll(...numbers) {
-    return numbers.reduce((acc, curr) => acc + curr, 0);
-}
-console.log("Sum All: " + sumAll(1, 2, 3, 4, 5)); // 15
+//& FUNCTION EXPRESSION
+// A function expression defines a function as part of an expression. It can be anonymous or named and is often assigned to a variable.
 
-//& 5. FUNCTION EXPRESSIONS (Anonymous & Named)
-const multiply = function(x, y) {
-    return x * y;
+const add = function(a, b) {
+    return a + b;
 };
-console.log("Product: " + multiply(4, 5)); // 20
 
-//& 6. ARROW FUNCTIONS (ES6)
-// Concise syntax for writing functions
-const square = (n) => n * n;
-console.log("Square of 6: " + square(6)); // 36
+// Calling the function
+console.log(add(5, 3)); // Output: 8
 
-const sayHello = () => console.log("Hello from an Arrow Function!");
-sayHello();
+//& ARROW FUNCTION
+// Arrow functions provide a shorter syntax for writing functions. They are especially useful for writing concise functions.
 
-// Multi-line arrow function
-const isEven = (num) => {
-    if (num % 2 === 0) {
-        return true;
-    }
-    return false;
-};
-console.log("Is 8 even? " + isEven(8)); // true
+const multiply = (x, y) => x * y;
 
-//& 7. SCOPE: GLOBAL, FUNCTION, AND BLOCK SCOPE
+// Calling the arrow function
+console.log(multiply(4, 6)); // Output: 24
+
+//& PARAMETERS AND ARGUMENTS
+// Parameters are variables listed in the function definition, while arguments are the actual values passed to the function when it is called.
+
+function subtract(a, b) {
+    return a - b;
+}
+
+// Calling the function with arguments
+console.log(subtract(10, 4)); // Output: 6
+
+//& RETURN VALUES
+// Functions can return values using the 'return' statement. If no return statement is provided, the function returns 'undefined'.
+
+function square(num) {
+    return num * num;
+}
+
+// Calling the function and storing the return value
+const result = square(5);
+console.log(result); // Output: 25
+
+//& SCOPE
+// Scope determines the accessibility of variables. JavaScript has global scope and local scope (function scope).
+
 let globalVar = "I am global";
 
-function testScope() {
-    let functionVar = "I am function scoped";
-    if (true) {
-        let blockVar = "I am block scoped";
-        var functionScopedVar = "I am accessible anywhere inside testScope";
-        console.log(blockVar);
-    }
-    console.log(functionVar);
-    console.log(functionScopedVar);
-    // console.log(blockVar); // ❌ ReferenceError!
+function checkScope() {
+    let localVar = "I am local";
+    console.log(globalVar); // Accessible
+    console.log(localVar);  // Accessible
 }
-testScope();
 
-//& 8. CLOSURES IN JAVASCRIPT
-// A closure gives a function access to its outer function's scope even after the outer function has returned.
-function createCounter() {
-    let count = 0;
-    return function() {
-        count++;
-        return count;
+checkScope();
+// console.log(localVar); // Unaccessible, would throw an error
+
+//& CLOSURES
+// A closure is a function that has access to its own scope, the outer function's scope, and the global scope. Closures are often used to create private variables.
+
+function outerFunction(outerVar) {
+    return function innerFunction(innerVar) {
+        console.log(`Outer Variable: ${outerVar}`);
+        console.log(`Inner Variable: ${innerVar}`);
     };
 }
-const counter = createCounter();
-console.log("Counter 1: " + counter()); // 1
-console.log("Counter 2: " + counter()); // 2
-console.log("Counter 3: " + counter()); // 3
 
-//& 9. HIGHER-ORDER FUNCTIONS & CALLBACKS
-// Functions that take other functions as arguments or return functions.
-function processArray(arr, callback) {
-    const result = [];
-    for (let item of arr) {
-        result.push(callback(item));
-    }
-    return result;
+const closureExample = outerFunction("I am from outer");
+closureExample("I am from inner");
+
+//& HIGHER-ORDER FUNCTIONS
+// Higher-order functions are functions that can take other functions as arguments or return functions as their result. They are commonly used for operations like map, filter, and reduce.
+
+const numbers = [1, 2, 3, 4, 5];
+
+// Using map to create a new array with each number squared
+const squaredNumbers = numbers.map(num => num * num);
+console.log(squaredNumbers); // Output: [1, 4, 9, 16, 25]
+
+// Using filter to create a new array with only even numbers
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // Output: [2, 4]
+
+// Using reduce to calculate the sum of all numbers
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(sum); // Output: 15
+
+// using forEach to iterate over each number and log it
+numbers.forEach(num => console.log(num)); // Output: 1 2 3 4 5 
+
+// Using a higher-order function to create a function that adds a specific number to its input
+function createAdder(x) {
+    return function(y) {
+        return x + y;
+    };
 }
 
-const numbersList = [1, 2, 3, 4];
-const doubled = processArray(numbersList, (x) => x * 2);
-console.log("Doubled list: ", doubled); // [2, 4, 6, 8]
+const addFive = createAdder(5);
+console.log(addFive(10)); // Output: 15
 
-// Built-in higher-order methods: map, filter, reduce
-const cubes = numbersList.map(n => n ** 3);
-console.log("Cubes: ", cubes); // [1, 8, 27, 64]
+// using a higher-order function to create a function that multiplies by a specific number
+function createMultiplier(x) {
+    return function(y) {
+        return x * y;
+    };
+}//output: 15
 
-//& 10. IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)
-(function() {
-    const privateKey = "SEC_9988";
-    console.log("IIFE executed immediately! Private key protected: " + privateKey);
-})();
+// Using the createMultiplier function to create a function that multiplies by 3
+const multiplyByThree = createMultiplier(3);
+console.log(multiplyByThree(7)); // Output: 21
 
-//& CONCLUSION
-/* Functions are the primary building blocks of modular, scalable JavaScript applications.
-Mastering arrow functions, closures, and higher-order callbacks is essential for mastering modern frameworks like React and Node.js. */
+//& Conclusion
+/*In this chapter, we have explored the fundamentals of functions in JavaScript. We learned about function declarations, expressions, arrow functions, 
+ parameters, return values, scope, closures, and higher-order functions. Functions are essential for writing clean, modular, and maintainable code in 
+JavaScript.*/

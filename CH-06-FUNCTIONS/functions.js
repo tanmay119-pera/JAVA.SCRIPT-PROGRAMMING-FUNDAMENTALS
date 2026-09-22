@@ -136,6 +136,24 @@ function factorial(n) {
 
 console.log(factorial(5)); // Output: 120
 
+//& ANONYMOUS FUNCTIONS
+// Anonymous functions are functions without a name. They are often used as arguments to higher-order functions or assigned to variables.
+
+const anonymousFunction = function() {
+    return "I am an anonymous function!";
+};
+
+console.log(anonymousFunction());   
+
+//& IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)
+// An IIFE is a function that is defined and immediately invoked. It is often used to create a new scope and avoid polluting the global namespace.
+
+(function() {
+    const message = "I am an IIFE!";
+    console.log(message);
+})(); // Output: I am an IIFE! 
+
+
 //& FUNCTION SCOPE AND BLOCK SCOPE
 // In JavaScript, functions create their own scope. Variables declared within a function are not accessible outside of it. Additionally, ES6 introduced block scope with the 'let' and 'const' keywords.
 

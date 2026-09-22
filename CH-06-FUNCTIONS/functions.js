@@ -124,7 +124,69 @@ function createMultiplier(x) {
 const multiplyByThree = createMultiplier(3);
 console.log(multiplyByThree(7)); // Output: 21
 
-//& Conclusion
-/*In this chapter, we have explored the fundamentals of functions in JavaScript. We learned about function declarations, expressions, arrow functions, 
- parameters, return values, scope, closures, and higher-order functions. Functions are essential for writing clean, modular, and maintainable code in 
-JavaScript.*/
+//& RECURSION
+// Recursion is a technique where a function calls itself to solve a problem. It is often used for tasks that can be broken down into smaller, similar sub-tasks.
+
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1; // Base case
+    }
+    return n * factorial(n - 1); // Recursive case
+}
+
+console.log(factorial(5)); // Output: 120
+
+//& FUNCTION HOISTING
+// Function declarations are hoisted, meaning they can be called before they are defined in the code. However, function expressions and arrow functions are not hoisted.
+
+console.log(hoistedFunction()); // Output: "This function is hoisted!"
+
+function hoistedFunction() {
+    return "This function is hoisted!";
+}
+
+// The following will throw an error because function expressions are not hoisted
+// console.log(notHoistedFunction()); // Uncaught ReferenceError: Cannot access 'notHoistedFunction' before initialization
+
+const notHoistedFunction = function() {
+    return "This function is not hoisted!";
+};
+
+//& DEFAULT PARAMETERS
+// Functions can have default parameter values, which are used if no argument is provided for that parameter.
+
+function greetWithDefault(name = "Guest") {
+    return `Hello, ${name}!`;
+}
+
+console.log(greetWithDefault()); // Output: Hello, Guest!
+console.log(greetWithDefault("Bob")); // Output: Hello, Bob!
+
+//& REST PARAMETERS
+// Rest parameters allow a function to accept an indefinite number of arguments as an array.
+
+function sumAll(...numbers) {
+    return numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+}
+
+console.log(sumAll(1, 2, 3, 4)); // Output: 10
+console.log(sumAll(5, 10, 15)); // Output: 30
+
+//& CALLBACK FUNCTIONS
+// A callback function is a function passed into another function as an argument and is executed after some operation has been completed.
+
+function fetchData(callback) {
+    setTimeout(() => {
+        const data = "Data fetched!";
+        callback(data);
+    }, 1000);
+}
+
+fetchData((data) => {
+    console.log(data); // Output: Data fetched!
+});
+
+//& CONCLUSION
+// Functions are a fundamental concept in JavaScript that allow for code reusability, modularity, and maintainability. Understanding how to define, call, and work with functions is essential for any JavaScript developer.        
+
+

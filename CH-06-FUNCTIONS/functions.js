@@ -136,6 +136,25 @@ function factorial(n) {
 
 console.log(factorial(5)); // Output: 120
 
+//& FUNCTION SCOPE AND BLOCK SCOPE
+// In JavaScript, functions create their own scope. Variables declared within a function are not accessible outside of it. Additionally, ES6 introduced block scope with the 'let' and 'const' keywords.
+
+function functionScopeExample() {
+    var functionScopedVar = "I am function scoped";
+    let blockScopedVar = "I am block scoped";
+    const anotherBlockScopedVar = "I am also block scoped";
+
+    console.log(functionScopedVar); // Accessible
+    console.log(blockScopedVar); // Accessible
+    console.log(anotherBlockScopedVar); // Accessible
+}
+
+functionScopeExample();
+
+// console.log(functionScopedVar); // Unaccessible, would throw an error
+// console.log(blockScopedVar); // Unaccessible, would throw an error
+// console.log(anotherBlockScopedVar); // Unaccessible, would throw an error    
+
 //& FUNCTION HOISTING
 // Function declarations are hoisted, meaning they can be called before they are defined in the code. However, function expressions and arrow functions are not hoisted.
 
